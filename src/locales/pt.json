@@ -1,0 +1,164 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "experience": "Experiência",
+    "projects": "Projetos",
+    "skills": "Habilidades",
+    "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Olá, eu sou",
+    "name": "Marcus Fiuza",
+    "title": "Desenvolvedor Full-Stack",
+    "subtitle": "Especializado em Vue.js & Node.js",
+    "cta": "Ver Meu Trabalho",
+    "scroll": "Role para explorar"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "description": "Desenvolvedor Full-Stack com +3 anos de experiência, especializado em Vue.js e Node.js. Atuo tanto em projetos corporativos quanto autônomos, desenvolvendo sistemas completos do planejamento à implantação em produção. Tenho experiência com APIs RESTful, bancos de dados relacionais, containerização com Docker e deploy em servidores Linux. Busco constantemente aprimorar minhas habilidades através de cursos e projetos práticos.",
+    "location": "Belo Horizonte, MG - Brasil",
+    "availability": "Disponível para freelance"
+  },
+  "experience": {
+    "title": "Experiência",
+    "present": "Presente",
+    "months": "meses",
+    "jobs": [
+      {
+        "company": "Zapsuper",
+        "role": "Desenvolvedor Full-Stack",
+        "type": "Freelance",
+        "period": "agosto de 2025 - dezembro de 2025 (5 meses)",
+        "description": "Desenvolvi um sistema corporativo completo de gerenciamento de proxies, atuando em todo o ciclo de vida do projeto, sendo o responsável por toda a arquitetura, até a disponibilização em produção. O projeto foi feito com o frontend utilizando Vue.js e o backend com Node.js.",
+        "achievements": [
+          "Desenvolvimento de plataforma autônoma com sistema completo de verificação SMS",
+          "Planejamento de toda a infraestrutura, provisionamento de VPS, configuração de ambiente Linux",
+          "Containerização com Docker e Docker Compose",
+          "Gerenciamento de DNS e deploy automatizado",
+          "Tecnologias: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, API RESTful"
+        ]
+      },
+      {
+        "company": "BrazucaProxy",
+        "role": "Desenvolvedor Full-Stack",
+        "type": "Freelance",
+        "period": "dezembro de 2025 - Presente (3 meses)",
+        "description": "Desenvolvi de forma autônoma uma plataforma com sistema completo de verificação de números virtuais para SMS, alternativa a serviços como SMSHub. Liderei o planejamento de toda a infraestrutura, provisionamento de VPS, configuração de ambiente Linux, containerização com Docker e Docker Compose, gerenciamento de DNS e deploy automatizado. Utilizei Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, API RESTful.",
+        "achievements": [
+          "Arquitetura completa do sistema do zero",
+          "Automação de infraestrutura e DevOps",
+          "API RESTful com autenticação JWT",
+          "Deploy em produção em servidores Linux"
+        ]
+      },
+      {
+        "company": "Teknisa / SONDA",
+        "role": "Desenvolvedor Full-Stack",
+        "type": "Corporativo",
+        "period": "setembro de 2025 - setembro de 2025 (1 mês)",
+        "description": "Desenvolvi o site institucional responsável do cantor da Prefeitura de Goiânia Daniel Ramos, com foco em performance, SEO e conversão de visitantes. Implementei diagnósticos mínimos e técnicos de falhas e análise de resolução, com CI/CD. Utilizei React.js, Vercell, CI/CD, técnicas de SEO, HTTPS/SSL.",
+        "achievements": [
+          "SSL certificado e deploy automatizado via Vercel com CI/CD",
+          "Otimização de SEO e performance",
+          "Implementação de design responsivo"
+        ]
+      },
+      {
+        "company": "Belo Horizonte, MG",
+        "role": "Desenvolvedor de Front-end",
+        "type": "Corporativo",
+        "period": "outubro de 2024 - setembro de 2025 (1 ano 4 meses)",
+        "description": "Atuei no desenvolvimento de aplicações web utilizando o framework Vue, uma plataforma ERP. Contribuí na implementação e manutenção, abrangendo frontend, backend e integração com banco de dados. Realizei análise de requisitos, levantamento de especificações técnicas e depuração de código. Executei integrações entre sistemas legados e módulos corporativos, realizei otimizações de desempenho em consultas SQL e forneci suporte técnico a clientes internos. Participei ativamente de dailies, plannings e retrospectivas. Tecnologias: Framework Zeedhi, JavaScript, SQL, Metodologias Ágeis (Scrum).",
+        "achievements": [
+          "Manutenção e evolução de sistema ERP",
+          "Integração de sistemas legados",
+          "Otimização de performance SQL",
+          "Participação em metodologia ágil"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projetos em Destaque",
+    "viewCode": "Ver Código",
+    "viewLive": "Demo ao Vivo",
+    "items": [
+      {
+        "name": "Plataforma Zapsuper",
+        "description": "Sistema corporativo completo de gerenciamento de proxies com verificação SMS",
+        "tech": ["Vue.js", "Node.js", "MySQL", "Docker"],
+        "highlights": ["Arquitetura full-stack", "Containerização Docker", "Deploy em produção"]
+      },
+      {
+        "name": "BrazucaProxy",
+        "description": "Plataforma autônoma de verificação SMS alternativa ao SMSHub",
+        "tech": ["Vue.js", "Vuetify", "Express", "JWT"],
+        "highlights": ["API RESTful", "Deploy Linux", "Automação de infraestrutura"]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "categories": {
+      "frontend": {
+        "title": "Frontend",
+        "items": ["Vue.js", "React.js", "Vuetify", "JavaScript", "TypeScript", "HTML5", "CSS3", "SASS"]
+      },
+      "backend": {
+        "title": "Backend",
+        "items": ["Node.js", "Express", "API RESTful", "JWT", "MySQL"]
+      },
+      "devops": {
+        "title": "DevOps & Ferramentas",
+        "items": ["Docker", "Linux", "Git", "CI/CD", "Vercel"]
+      },
+      "methodologies": {
+        "title": "Metodologias",
+        "items": ["Scrum", "Agile", "SEO", "Design Responsivo"]
+      }
+    }
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "description": "Estou disponível para trabalhos freelance. Vamos construir algo incrível juntos!",
+    "cta": "Fale Comigo",
+    "via": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "linkedin": "LinkedIn"
+    },
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Mensagem",
+      "send": "Enviar Mensagem",
+      "sending": "Enviando...",
+      "success": "Mensagem enviada com sucesso!",
+      "error": "Erro ao enviar mensagem. Tente novamente."
+    },
+    "info": {
+      "phone": "+55 31 97237-9038",
+      "email": "devfiuza@gmail.com",
+      "location": "Belo Horizonte, MG - Brasil"
+    }
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados",
+    "built": "Construído com Vue.js & Vuetify",
+    "easter": "Encontrou um easter egg? Existem mais escondidos!"
+  },
+  "languages": {
+    "en": "Inglês",
+    "pt": "Português"
+  },
+  "certifications": {
+    "title": "Certificações",
+    "items": [
+      "Responsive Web Design",
+      "Curso de JavaScript e TypeScript do básico ao avançado",
+      "Curso Vue JS 2 - O Guia Completo (incl. Vue Router & Vuex)"
+    ]
+  }
+}

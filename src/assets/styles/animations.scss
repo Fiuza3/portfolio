@@ -1,0 +1,147 @@
+@import './variables.scss';
+
+// Fade animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Glitch effect
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 2px $neon-cyan, -2px -2px $neon-cyan-dark;
+  }
+  25% {
+    text-shadow: -2px 2px $neon-cyan, 2px -2px $neon-cyan-dark;
+  }
+  50% {
+    text-shadow: 2px -2px $neon-cyan, -2px 2px $neon-cyan-dark;
+  }
+  75% {
+    text-shadow: -2px -2px $neon-cyan, 2px 2px $neon-cyan-dark;
+  }
+  100% {
+    text-shadow: 2px 2px $neon-cyan, -2px -2px $neon-cyan-dark;
+  }
+}
+
+// Neon glow pulse
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px $neon-cyan, 0 0 10px $neon-cyan, 0 0 15px $neon-cyan;
+  }
+  50% {
+    box-shadow: 0 0 10px $neon-cyan, 0 0 20px $neon-cyan, 0 0 30px $neon-cyan;
+  }
+}
+
+// Slide animations
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Scale animations
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Utility classes
+.animate-fade-in {
+  animation: fadeIn $transition-slow;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp $transition-slow;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown $transition-slow;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft $transition-slow;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight $transition-slow;
+}
+
+.animate-scale-in {
+  animation: scaleIn $transition-slow;
+}
+
+.neon-glow {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+.glitch-effect {
+  animation: glitch 0.3s ease-in-out;
+}
+
+// Hover effects
+.hover-lift {
+  transition: transform $transition-normal;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.hover-glow {
+  transition: box-shadow $transition-normal;
+  
+  &:hover {
+    box-shadow: $shadow-neon;
+  }
+}
