@@ -17,8 +17,8 @@
   },
   "about": {
     "title": "Sobre Mim",
-    "description": "Desenvolvedor Full-Stack com +3 anos de experiência, especializado em Vue.js e Node.js. Atuo tanto em projetos corporativos quanto autônomos, desenvolvendo sistemas completos do planejamento à implantação em produção. Tenho experiência com APIs RESTful, bancos de dados relacionais, containerização com Docker e deploy em servidores Linux. Busco constantemente aprimorar minhas habilidades através de cursos e projetos práticos.",
-    "location": "Belo Horizonte, MG - Brasil",
+    "description": "Desenvolvedor Full Stack com mais de 3 anos de experiência, especializado em Vue.js e Node.js. Atuo em projetos corporativos e autônomos, desenvolvendo sistemas completos do planejamento à implantação em produção. Experiência com APIs RESTful, bancos de dados relacionais, Docker, deploy em servidores Linux e CI/CD.",
+    "location": "Brasil",
     "availability": "Disponível para freelance"
   },
   "experience": {
@@ -29,53 +29,70 @@
       {
         "company": "Zapsuper",
         "role": "Desenvolvedor Full-Stack",
-        "type": "Freelance",
-        "period": "agosto de 2025 - dezembro de 2025 (5 meses)",
-        "description": "Desenvolvi um sistema corporativo completo de gerenciamento de proxies, atuando em todo o ciclo de vida do projeto, sendo o responsável por toda a arquitetura, até a disponibilização em produção. O projeto foi feito com o frontend utilizando Vue.js e o backend com Node.js.",
+        "type": "Autônomo",
+        "period": "dezembro de 2025 - Presente",
+        "description": "Desenvolvimento de plataforma completa de números virtuais para verificação SMS, alternativa a serviços como SMSHub. Responsável por planejamento de infraestrutura, VPS, Linux, Docker, DNS e deploy automatizado.",
         "achievements": [
-          "Desenvolvimento de plataforma autônoma com sistema completo de verificação SMS",
-          "Planejamento de toda a infraestrutura, provisionamento de VPS, configuração de ambiente Linux",
+          "Arquitetura completa do sistema do zero",
+          "Planejamento de infraestrutura, VPS e ambiente Linux",
           "Containerização com Docker e Docker Compose",
           "Gerenciamento de DNS e deploy automatizado",
-          "Tecnologias: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, API RESTful"
+          "Tecnologias: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, API REST"
         ]
       },
       {
         "company": "BrazucaProxy",
         "role": "Desenvolvedor Full-Stack",
-        "type": "Freelance",
-        "period": "dezembro de 2025 - Presente (3 meses)",
-        "description": "Desenvolvi de forma autônoma uma plataforma com sistema completo de verificação de números virtuais para SMS, alternativa a serviços como SMSHub. Liderei o planejamento de toda a infraestrutura, provisionamento de VPS, configuração de ambiente Linux, containerização com Docker e Docker Compose, gerenciamento de DNS e deploy automatizado. Utilizei Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, API RESTful.",
+        "type": "Autônomo",
+        "period": "agosto de 2025 - dezembro de 2025",
+        "description": "Desenvolvimento de sistema corporativo completo de gerenciamento de proxies, atuando em todo o ciclo de vida do projeto, da arquitetura ao deploy em produção.",
         "achievements": [
+          "Sistema corporativo completo de gerenciamento de proxies",
           "Arquitetura completa do sistema do zero",
-          "Automação de infraestrutura e DevOps",
-          "API RESTful com autenticação JWT",
-          "Deploy em produção em servidores Linux"
+          "Planejamento de infraestrutura, VPS e ambiente Linux",
+          "Containerização com Docker e Docker Compose",
+          "Gerenciamento de DNS e deploy automatizado",
+          "Tecnologias: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, API REST"
         ]
       },
       {
-        "company": "Teknisa / SONDA",
-        "role": "Desenvolvedor Full-Stack",
-        "type": "Corporativo",
-        "period": "setembro de 2025 - setembro de 2025 (1 mês)",
-        "description": "Desenvolvi o site institucional responsável do cantor da Prefeitura de Goiânia Daniel Ramos, com foco em performance, SEO e conversão de visitantes. Implementei diagnósticos mínimos e técnicos de falhas e análise de resolução, com CI/CD. Utilizei React.js, Vercell, CI/CD, técnicas de SEO, HTTPS/SSL.",
+        "company": "Daniel Ramos",
+        "role": "Desenvolvedor Front-end",
+        "type": "Autônomo",
+        "period": "setembro de 2025",
+        "description": "Desenvolvimento de site institucional responsivo para cantor gospel, com foco em performance, SEO e conversão.",
         "achievements": [
-          "SSL certificado e deploy automatizado via Vercel com CI/CD",
+          "Site institucional responsivo",
           "Otimização de SEO e performance",
-          "Implementação de design responsivo"
+          "Deploy automatizado com CI/CD",
+          "Tecnologias: React.js, SEO Técnico, Vercel, CI/CD, HTTPS/SSL"
         ]
       },
       {
-        "company": "Belo Horizonte, MG",
-        "role": "Desenvolvedor de Front-end",
-        "type": "Corporativo",
-        "period": "outubro de 2024 - setembro de 2025 (1 ano 4 meses)",
-        "description": "Atuei no desenvolvimento de aplicações web utilizando o framework Vue, uma plataforma ERP. Contribuí na implementação e manutenção, abrangendo frontend, backend e integração com banco de dados. Realizei análise de requisitos, levantamento de especificações técnicas e depuração de código. Executei integrações entre sistemas legados e módulos corporativos, realizei otimizações de desempenho em consultas SQL e forneci suporte técnico a clientes internos. Participei ativamente de dailies, plannings e retrospectivas. Tecnologias: Framework Zeedhi, JavaScript, SQL, Metodologias Ágeis (Scrum).",
+        "company": "Teknisa",
+        "role": "Desenvolvedor Full-Stack",
+        "type": "Contrato",
+        "period": "outubro de 2024 - setembro de 2025",
+        "description": "Atuação em desenvolvimento de aplicações web e ERP com Vue, integração com backend e banco de dados, otimização de queries SQL e suporte a clientes internos.",
         "achievements": [
-          "Manutenção e evolução de sistema ERP",
-          "Integração de sistemas legados",
-          "Otimização de performance SQL",
-          "Participação em metodologia ágil"
+          "Desenvolvimento e manutenção de sistema ERP",
+          "Integração frontend, backend e banco de dados",
+          "Otimização de performance em queries SQL",
+          "Suporte técnico a clientes internos",
+          "Tecnologias: Vue.js, JavaScript, SQL, Framework Zeedhi, Scrum"
+        ]
+      },
+      {
+        "company": "SONDA",
+        "role": "Técnico de TI",
+        "type": "CLT",
+        "period": "maio de 2023 - agosto de 2024",
+        "description": "Suporte técnico em ambientes Windows e Linux, troubleshooting, diagnóstico e resolução de incidentes. Gestão de chamados com GLPI e ServiceNow.",
+        "achievements": [
+          "Suporte técnico Windows e Linux",
+          "Troubleshooting e resolução de incidentes",
+          "Gestão de chamados GLPI e ServiceNow",
+          "Tecnologias: Windows Server, Linux, GLPI, ServiceNow, Scrum, Kanban"
         ]
       }
     ]
@@ -86,16 +103,16 @@
     "viewLive": "Demo ao Vivo",
     "items": [
       {
-        "name": "Plataforma Zapsuper",
-        "description": "Sistema corporativo completo de gerenciamento de proxies com verificação SMS",
-        "tech": ["Vue.js", "Node.js", "MySQL", "Docker"],
-        "highlights": ["Arquitetura full-stack", "Containerização Docker", "Deploy em produção"]
+        "name": "Zapsuper",
+        "description": "Plataforma completa de verificação SMS alternativa ao SMSHub",
+        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
+        "highlights": ["Arquitetura full-stack", "API RESTful com JWT", "Deploy Linux automatizado"]
       },
       {
         "name": "BrazucaProxy",
-        "description": "Plataforma autônoma de verificação SMS alternativa ao SMSHub",
-        "tech": ["Vue.js", "Vuetify", "Express", "JWT"],
-        "highlights": ["API RESTful", "Deploy Linux", "Automação de infraestrutura"]
+        "description": "Sistema corporativo de gerenciamento de proxies",
+        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
+        "highlights": ["Sistema completo", "Arquitetura do zero", "Deploy em produção"]
       }
     ]
   },

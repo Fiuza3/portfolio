@@ -17,8 +17,8 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Full-Stack Developer with +3 years of experience, specialized in Vue.js and Node.js. I work on both corporate and autonomous projects, developing complete systems from planning to production deployment. I have experience with RESTful APIs, relational databases, containerization with Docker, and deployment on Linux servers. I constantly seek to improve my skills through courses and practical projects.",
-    "location": "Belo Horizonte, MG - Brazil",
+    "description": "Full Stack Developer with over 3 years of experience, specialized in Vue.js and Node.js. I work on both corporate and autonomous projects, developing complete systems from planning to production deployment. Experience with RESTful APIs, relational databases, Docker, deployment on Linux servers and CI/CD.",
+    "location": "Brazil",
     "availability": "Available for freelance"
   },
   "experience": {
@@ -29,53 +29,70 @@
       {
         "company": "Zapsuper",
         "role": "Full-Stack Developer",
-        "type": "Freelance",
-        "period": "August 2025 - December 2025 (5 months)",
-        "description": "Developed a complete corporate proxy management system, working on the entire project lifecycle from planning to production deployment. Responsible for all architecture, from frontend to availability in production. The project was built with Vue.js frontend and Node.js backend.",
+        "type": "Autonomous",
+        "period": "December 2025 - Present",
+        "description": "Development of complete virtual numbers platform for SMS verification, alternative to services like SMSHub. Responsible for infrastructure planning, VPS, Linux, Docker, DNS and automated deployment.",
         "achievements": [
-          "Autonomous platform development with complete SMS verification system",
-          "Planning of all infrastructure, VPS provisioning, Linux environment configuration",
+          "Complete system architecture from scratch",
+          "Infrastructure planning, VPS and Linux environment",
           "Containerization with Docker and Docker Compose",
-          "DNS and deployment management automation",
+          "DNS management and automated deployment",
           "Technologies: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, RESTful API"
         ]
       },
       {
         "company": "BrazucaProxy",
         "role": "Full-Stack Developer",
-        "type": "Freelance",
-        "period": "December 2025 - Present (3 months)",
-        "description": "Developed an autonomous platform with complete number verification system for SMS, alternative to services like SMSHub. Led the planning of all infrastructure, VPS provisioning, Linux environment configuration, containerization with Docker and Docker Compose, DNS management and automated deployment. Used Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, RESTful API.",
+        "type": "Autonomous",
+        "period": "August 2025 - December 2025",
+        "description": "Development of complete corporate proxy management system, working on the entire project lifecycle from architecture to production deployment.",
         "achievements": [
+          "Complete corporate proxy management system",
           "Complete system architecture from scratch",
-          "Infrastructure automation and DevOps",
-          "RESTful API with JWT authentication",
-          "Production deployment on Linux servers"
+          "Infrastructure planning, VPS and Linux environment",
+          "Containerization with Docker and Docker Compose",
+          "DNS management and automated deployment",
+          "Technologies: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, RESTful API"
         ]
       },
       {
-        "company": "Teknisa / SONDA",
+        "company": "Daniel Ramos",
+        "role": "Front-end Developer",
+        "type": "Autonomous",
+        "period": "September 2025",
+        "description": "Development of responsive institutional website for gospel singer, focusing on performance, SEO and conversion.",
+        "achievements": [
+          "Responsive institutional website",
+          "SEO and performance optimization",
+          "Automated deployment with CI/CD",
+          "Technologies: React.js, Technical SEO, Vercel, CI/CD, HTTPS/SSL"
+        ]
+      },
+      {
+        "company": "Teknisa",
         "role": "Full-Stack Developer",
-        "type": "Corporate",
-        "period": "September 2025 - September 2025 (1 month)",
-        "description": "Developed the institutional website responsible for Goiânia City Hall singer Daniel Ramos, focusing on performance, SEO and visitor conversion. Implemented minimal and technical diagnostics of failures and resolution analysis, with CI/CD. Used React.js, Vercell, CI/CD, SEO techniques, HTTPS/SSL.",
+        "type": "Contract",
+        "period": "October 2024 - September 2025",
+        "description": "Worked on web application development and ERP with Vue, backend and database integration, SQL query optimization and internal client support.",
         "achievements": [
-          "Certified SSL and automated deployment via Vercel with CI/CD",
-          "SEO optimization and performance",
-          "Responsive design implementation"
+          "ERP system development and maintenance",
+          "Frontend, backend and database integration",
+          "SQL query performance optimization",
+          "Technical support to internal clients",
+          "Technologies: Vue.js, JavaScript, SQL, Zeedhi Framework, Scrum"
         ]
       },
       {
-        "company": "Belo Horizonte, MG",
-        "role": "Frontend Developer",
-        "type": "Corporate",
-        "period": "October 2024 - September 2025 (1 year 4 months)",
-        "description": "Worked on web application development using Vue framework, an ERP platform. Contributed to implementation and maintenance, covering frontend, backend and database integration. Performed requirements analysis, technical specifications and code debugging. Executed integrations between legacy systems and corporate modules, performed SQL query performance optimizations and provided technical support to internal clients. Actively participated in dailies, plannings and retrospectives. Technologies: Zeedhi Framework, JavaScript, SQL, Agile Methodologies (Scrum).",
+        "company": "SONDA",
+        "role": "IT Technician",
+        "type": "CLT",
+        "period": "May 2023 - August 2024",
+        "description": "Technical support in Windows and Linux environments, troubleshooting, diagnosis and incident resolution. Ticket management with GLPI and ServiceNow.",
         "achievements": [
-          "ERP system maintenance and evolution",
-          "Legacy system integration",
-          "SQL performance optimization",
-          "Agile methodology participation"
+          "Windows and Linux technical support",
+          "Troubleshooting and incident resolution",
+          "GLPI and ServiceNow ticket management",
+          "Technologies: Windows Server, Linux, GLPI, ServiceNow, Scrum, Kanban"
         ]
       }
     ]
@@ -86,16 +103,16 @@
     "viewLive": "Live Demo",
     "items": [
       {
-        "name": "Zapsuper Platform",
-        "description": "Complete corporate proxy management system with SMS verification",
-        "tech": ["Vue.js", "Node.js", "MySQL", "Docker"],
-        "highlights": ["Full-stack architecture", "Docker containerization", "Production deployment"]
+        "name": "Zapsuper",
+        "description": "Complete SMS verification platform alternative to SMSHub",
+        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
+        "highlights": ["Full-stack architecture", "RESTful API with JWT", "Automated Linux deployment"]
       },
       {
         "name": "BrazucaProxy",
-        "description": "Autonomous SMS verification platform alternative to SMSHub",
-        "tech": ["Vue.js", "Vuetify", "Express", "JWT"],
-        "highlights": ["RESTful API", "Linux deployment", "Infrastructure automation"]
+        "description": "Corporate proxy management system",
+        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
+        "highlights": ["Complete system", "Architecture from scratch", "Production deployment"]
       }
     ]
   },
