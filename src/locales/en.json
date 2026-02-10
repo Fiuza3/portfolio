@@ -121,15 +121,15 @@
     "categories": {
       "frontend": {
         "title": "Frontend",
-        "items": ["Vue.js", "React.js", "Vuetify", "JavaScript", "TypeScript", "HTML5", "CSS3", "SASS"]
+        "items": ["Vue.js", "React.js", "Vuetify", "JavaScript", "TypeScript", "HTML5", "CSS3", "SASS", "Responsive Design", "Webpack", "Vite"]
       },
       "backend": {
         "title": "Backend",
-        "items": ["Node.js", "Express", "RESTful API", "JWT", "MySQL"]
+        "items": ["Node.js", "Express", "RESTful API", "JWT", "MySQL", "PostgreSQL", "MongoDB", "Redis", "Microservices"]
       },
       "devops": {
         "title": "DevOps & Tools",
-        "items": ["Docker", "Linux", "Git", "CI/CD", "Vercel"]
+        "items": ["Docker", "Docker Compose", "Linux", "Git", "GitHub Actions", "CI/CD", "Vercel", "Nginx", "VPS"]
       },
       "methodologies": {
         "title": "Methodologies",

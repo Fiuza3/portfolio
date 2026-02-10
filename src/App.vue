@@ -61,4 +61,8 @@ body {
 .v-application {
   background: $void-black !important;
 }
+
+.v-container {
+  max-width: 1400px !important;
+}
 </style>

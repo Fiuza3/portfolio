@@ -123,6 +123,7 @@ const easterEggClick = () => {
 
 .social-link {
   color: #fff;
+  text-decoration: none;
   transition: all $transition-normal;
   display: flex;
   align-items: center;

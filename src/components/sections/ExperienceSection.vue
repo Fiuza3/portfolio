@@ -155,4 +155,28 @@ const { isVisible, targetRef } = useIntersectionObserver({ threshold: 0.1 })
 :deep(.v-timeline-item__body) {
   padding-bottom: $spacing-xl;
 }
+
+@media (max-width: 600px) {
+  .experience-timeline {
+    :deep(.v-timeline-item__opposite) {
+      display: none;
+    }
+  }
+
+  .job-period {
+    display: none;
+  }
+
+  .job-card {
+    margin-left: 0;
+  }
+
+  .section-title {
+    font-size: $font-size-2xl;
+    
+    .title-line {
+      max-width: 100px;
+    }
+  }
+}
 </style>
