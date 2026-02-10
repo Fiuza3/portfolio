@@ -22,7 +22,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import '@/assets/styles/variables.scss';
+@use '@/assets/styles/variables.scss' as *;
 
 * {
   margin: 0;

@@ -8,5 +8,17 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vuetify': ['vuetify'],
+          'vue-vendor': ['vue', 'vue-router', 'pinia']
+        }
+      }
+    },
+    cssCodeSplit: true,
+    minify: 'esbuild'
   }
 })

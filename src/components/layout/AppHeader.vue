@@ -90,7 +90,7 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables.scss';
+@use '@/assets/styles/variables.scss' as *;
 
 .app-header {
   background: rgba(11, 15, 20, 0.8) !important;

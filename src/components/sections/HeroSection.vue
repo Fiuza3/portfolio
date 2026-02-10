@@ -82,8 +82,8 @@ const spotlightStyle = computed(() => ({
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables.scss';
-@import '@/assets/styles/animations.scss';
+@use '@/assets/styles/variables.scss' as *;
+@use '@/assets/styles/animations.scss' as *;
 
 .hero-section {
   min-height: 100vh;
@@ -108,10 +108,11 @@ const spotlightStyle = computed(() => ({
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/fundo.jpg');
+  background-image: url('/fundo.webp');
   background-size: cover;
   background-position: center;
   opacity: 0;
+  will-change: opacity;
 }
 
 .spotlight {
@@ -131,11 +132,12 @@ const spotlightStyle = computed(() => ({
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/fundo.jpg');
+  background-image: url('/fundo.webp');
   background-size: cover;
   background-position: center;
   clip-path: circle(200px at var(--mouse-x, 50%) var(--mouse-y, 50%));
   transition: clip-path 0.15s ease-out;
+  will-change: clip-path;
 }
 
 .gradient-orb {
@@ -145,6 +147,7 @@ const spotlightStyle = computed(() => ({
   opacity: 0.3;
   animation: float 8s ease-in-out infinite;
   z-index: 2;
+  will-change: transform;
 
   &.orb-1 {
     width: 400px;

@@ -1,16 +1,16 @@
 <template>
   <div class="home-view">
     <HeroSection />
-    <AboutSection />
-    <ExperienceSection />
-    <ProjectsSection />
-    <SkillsSection />
-    <ContactSection />
+    <AboutSection v-if="showSections" />
+    <ExperienceSection v-if="showSections" />
+    <ProjectsSection v-if="showSections" />
+    <SkillsSection v-if="showSections" />
+    <ContactSection v-if="showSections" />
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
 import ExperienceSection from '@/components/sections/ExperienceSection.vue'
@@ -18,8 +18,15 @@ import ProjectsSection from '@/components/sections/ProjectsSection.vue'
 import SkillsSection from '@/components/sections/SkillsSection.vue'
 import ContactSection from '@/components/sections/ContactSection.vue'
 
-// Easter egg: Konami code
+const showSections = ref(false)
+
+// Lazy load sections after hero
 onMounted(() => {
+  setTimeout(() => {
+    showSections.value = true
+  }, 100)
+
+  // Easter egg: Konami code
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']
   let konamiIndex = 0
 
@@ -51,11 +58,6 @@ onMounted(() => {
 
   window.addEventListener('keydown', handleKeydown)
   window.addEventListener('keydown', handleKeyCombo)
-
-  return () => {
-    window.removeEventListener('keydown', handleKeydown)
-    window.removeEventListener('keydown', handleKeyCombo)
-  }
 })
 </script>
 

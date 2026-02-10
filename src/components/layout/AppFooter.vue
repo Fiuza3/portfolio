@@ -79,7 +79,7 @@ const easterEggClick = () => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables.scss';
+@use '@/assets/styles/variables.scss' as *;
 
 .app-footer {
   background: $void-black-dark !important;
