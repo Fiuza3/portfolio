@@ -100,19 +100,21 @@
   "projects": {
     "title": "Featured Projects",
     "viewCode": "View Code",
-    "viewLive": "Live Demo",
+    "viewLive": "Visit Site",
     "items": [
       {
         "name": "Zapsuper",
         "description": "Complete SMS verification platform alternative to SMSHub",
         "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
-        "highlights": ["Full-stack architecture", "RESTful API with JWT", "Automated Linux deployment"]
+        "highlights": ["Full-stack architecture", "RESTful API with JWT", "Automated Linux deployment"],
+        "liveUrl": "https://zapsuper.com"
       },
       {
         "name": "BrazucaProxy",
         "description": "Corporate proxy management system",
         "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
-        "highlights": ["Complete system", "Architecture from scratch", "Production deployment"]
+        "highlights": ["Complete system", "Architecture from scratch", "Production deployment"],
+        "liveUrl": "https://brazucaproxy.com.br"
       }
     ]
   },
@@ -173,7 +175,8 @@
   "certifications": {
     "title": "Certifications",
     "items": [
-      "Responsive Web Design",
+      "JavaScript Algorithms and Data Structures - freeCodeCamp (2026)",
+      "Responsive Web Design - freeCodeCamp",
       "JavaScript and TypeScript Course from basic to advanced",
       "Vue JS 2 - The Complete Guide (incl. Vue Router & Vuex)"
     ]

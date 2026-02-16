@@ -32,7 +32,7 @@
                 </v-card-text>
               </v-card>
 
-              <v-card class="skill-card mt-16" elevation="0">
+              <v-card class="skill-card" elevation="0">
                 <v-card-title class="skill-category-title">
                   <v-icon color="warning" size="large">
                     mdi-cog
@@ -55,7 +55,7 @@
             </v-col>
 
             <v-col cols="12" md="6" class="right-column">
-              <v-card class="skill-card mt-8" elevation="0">
+              <v-card class="skill-card" elevation="0">
                 <v-card-title class="skill-category-title">
                   <v-icon color="success" size="large">
                     mdi-server
@@ -76,9 +76,9 @@
                 </v-card-text>
               </v-card>
 
-              <v-card class="skill-card mt-16" elevation="0">
+              <v-card class="skill-card" elevation="0">
                 <v-card-title class="skill-category-title">
-                  <v-icon color="info" size="large">
+                  <v-icon color="error" size="large">
                     mdi-chart-timeline-variant
                   </v-icon>
                   {{ t('skills.categories.methodologies.title') }}
@@ -90,7 +90,7 @@
                       :key="idx"
                       class="skill-item"
                     >
-                      <v-icon size="small" color="info">mdi-chevron-right</v-icon>
+                      <v-icon size="small" color="error">mdi-chevron-right</v-icon>
                       <span>{{ skill }}</span>
                     </div>
                   </div>
@@ -98,13 +98,6 @@
               </v-card>
             </v-col>
           </v-row>
-
-          <div class="timeline-divider">
-            <div class="timeline-dot dot-1"></div>
-            <div class="timeline-dot dot-2"></div>
-            <div class="timeline-dot dot-3"></div>
-            <div class="timeline-dot dot-4"></div>
-          </div>
         </div>
       </div>
     </v-container>
@@ -133,7 +126,7 @@ const getCategoryColor = (key) => {
     frontend: 'primary',
     backend: 'success',
     devops: 'warning',
-    methodologies: 'info'
+    methodologies: 'error'
   }
   return colors[key] || 'primary'
 }
@@ -174,6 +167,7 @@ const getCategoryColor = (key) => {
 .skills-timeline-wrapper {
   margin-top: $spacing-xl;
   position: relative;
+  padding-bottom: 80px;
 }
 
 .timeline-divider {
@@ -187,41 +181,21 @@ const getCategoryColor = (key) => {
   z-index: 0;
 }
 
-.timeline-dot {
-  position: absolute;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 10px currentColor;
-  z-index: 1;
-
-  &.dot-1 {
-    top: 10%;
-    background: rgb(var(--v-theme-primary));
-  }
-
-  &.dot-2 {
-    top: 35%;
-    background: rgb(var(--v-theme-success));
-  }
-
-  &.dot-3 {
-    top: 65%;
-    background: rgb(var(--v-theme-info));
-  }
-
-  &.dot-4 {
-    top: 90%;
-    background: rgb(var(--v-theme-warning));
-  }
-}
-
 .left-column,
 .right-column {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.left-column {
+  padding-top: 40px;
+}
+
+.right-column {
+  padding-top: 240px;
 }
 
 .skill-card {

@@ -3,7 +3,7 @@
     <v-container>
       <div :class="{ 'animate-fade-in-up': isVisible }">
         <h2 class="section-title">
-          <span class="title-number">04.</span>
+          <span class="title-number">05.</span>
           {{ t('projects.title') }}
           <span class="title-line"></span>
         </h2>
@@ -20,18 +20,13 @@
                 <v-icon size="large" color="primary">mdi-folder-open</v-icon>
                 <div class="project-links">
                   <v-btn
+                    v-if="project.liveUrl"
                     icon
                     size="small"
                     variant="text"
                     color="primary"
-                  >
-                    <v-icon>mdi-github</v-icon>
-                  </v-btn>
-                  <v-btn
-                    icon
-                    size="small"
-                    variant="text"
-                    color="primary"
+                    :href="project.liveUrl"
+                    target="_blank"
                   >
                     <v-icon>mdi-open-in-new</v-icon>
                   </v-btn>

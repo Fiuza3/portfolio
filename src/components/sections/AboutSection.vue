@@ -10,8 +10,7 @@
 
         <v-row align="center" class="mt-8">
           <v-col cols="12" md="8">
-            <p class="about-text">
-              {{ t('about.description') }}
+            <p class="about-text" v-html="t('about.description')">
             </p>
 
             <div class="about-info mt-6">
@@ -98,6 +97,18 @@ const { isVisible, targetRef } = useIntersectionObserver({ threshold: 0.2 })
   font-size: $font-size-lg;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
+
+  :deep(a) {
+    color: $neon-cyan;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all $transition-fast;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom-color: $neon-cyan;
+    }
+  }
 }
 
 .about-info {

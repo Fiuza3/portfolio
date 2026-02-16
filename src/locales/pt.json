@@ -10,16 +10,16 @@
   "hero": {
     "greeting": "Olá, eu sou",
     "name": "Marcus Fiuza",
-    "title": "Desenvolvedor Full-Stack",
-    "subtitle": "Especializado em Vue.js & Node.js",
-    "cta": "Ver Meu Trabalho",
+    "title": "Desenvolvedor Web Full-Stack",
+    "subtitle": "Transformo ideias em sistemas profissionais que geram resultados reais para empresas em Belo Horizonte e região metropolitana",
+    "cta": "Solicitar Orçamento",
     "scroll": "Role para explorar"
   },
   "about": {
     "title": "Sobre Mim",
-    "description": "Desenvolvedor Full Stack com mais de 3 anos de experiência, especializado em Vue.js e Node.js. Atuo em projetos corporativos e autônomos, desenvolvendo sistemas completos do planejamento à implantação em produção. Experiência com APIs RESTful, bancos de dados relacionais, Docker, deploy em servidores Linux e CI/CD.",
-    "location": "Brasil",
-    "availability": "Disponível para freelance"
+    "description": "<a href='https://mfdesenvolvimento.online'>Desenvolvedor Full Stack</a> com mais de 3 anos de experiência criando soluções digitais profissionais para empresas. Especializado em Vue.js e Node.js, atuo do planejamento estratégico até a implantação em produção. Experiência comprovada com APIs RESTful, bancos de dados relacionais, Docker, deploy em servidores Linux e CI/CD. Atendo empresas em Belo Horizonte e toda região metropolitana.",
+    "location": "Belo Horizonte, MG - Brasil",
+    "availability": "Disponível para novos projetos"
   },
   "experience": {
     "title": "Experiência",
@@ -100,19 +100,21 @@
   "projects": {
     "title": "Projetos em Destaque",
     "viewCode": "Ver Código",
-    "viewLive": "Demo ao Vivo",
+    "viewLive": "Visitar Site",
     "items": [
       {
         "name": "Zapsuper",
         "description": "Plataforma completa de verificação SMS alternativa ao SMSHub",
         "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
-        "highlights": ["Arquitetura full-stack", "API RESTful com JWT", "Deploy Linux automatizado"]
+        "highlights": ["Arquitetura full-stack", "API RESTful com JWT", "Deploy Linux automatizado"],
+        "liveUrl": "https://zapsuper.com"
       },
       {
         "name": "BrazucaProxy",
         "description": "Sistema corporativo de gerenciamento de proxies",
         "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
-        "highlights": ["Sistema completo", "Arquitetura do zero", "Deploy em produção"]
+        "highlights": ["Sistema completo", "Arquitetura do zero", "Deploy em produção"],
+        "liveUrl": "https://brazucaproxy.com.br"
       }
     ]
   },
@@ -139,7 +141,7 @@
   },
   "contact": {
     "title": "Entre em Contato",
-    "description": "Estou disponível para trabalhos freelance. Vamos construir algo incrível juntos!",
+    "description": "Pronto para transformar sua ideia em realidade? Vamos conversar sobre seu projeto e encontrar a melhor solução para o seu negócio.",
     "cta": "Fale Comigo",
     "via": {
       "email": "Email",
@@ -161,6 +163,55 @@
       "location": "Belo Horizonte, MG - Brasil"
     }
   },
+  "services": {
+    "title": "Serviços",
+    "subtitle": "Soluções profissionais de desenvolvimento web para empresas que buscam resultados reais e mensuráveis",
+    "items": [
+      {
+        "name": "Landing Pages",
+        "description": "Páginas de alta conversão otimizadas para capturar leads e gerar vendas. Ideal para lançamentos, campanhas de marketing e validação de produtos.",
+        "icon": "mdi-rocket-launch",
+        "color": "primary",
+        "features": [
+          "Design responsivo e moderno focado em conversão",
+          "Otimização completa para SEO e Google Ads",
+          "Integração com ferramentas de marketing (RD Station, Mailchimp, etc)",
+          "Performance otimizada (carregamento rápido)",
+          "Formulários inteligentes com validação",
+          "Análise de métricas com Google Analytics",
+          "Testes A/B para otimização contínua",
+          "Entrega em 7-14 dias"
+        ]
+      },
+      {
+        "name": "Sites Institucionais",
+        "description": "Sites profissionais completos para empresas que querem marcar presença digital",
+        "icon": "mdi-web",
+        "color": "success",
+        "features": [
+          "Múltiplas páginas e seções",
+          "Painel administrativo",
+          "Blog integrado (opcional)",
+          "Formulários de contato avançados",
+          "Suporte pós-lançamento"
+        ]
+      },
+      {
+        "name": "Sistemas Personalizados",
+        "description": "Soluções sob medida para automatizar processos e aumentar produtividade",
+        "icon": "mdi-cog-outline",
+        "color": "warning",
+        "pricing": "Sob consulta",
+        "features": [
+          "Desenvolvimento sob medida",
+          "Integração com sistemas existentes",
+          "Banco de dados robusto",
+          "Autenticação e segurança",
+          "Treinamento da equipe"
+        ]
+      }
+    ]
+  },
   "footer": {
     "rights": "Todos os direitos reservados",
     "built": "Construído com Vue.js & Vuetify",
@@ -173,7 +224,8 @@
   "certifications": {
     "title": "Certificações",
     "items": [
-      "Responsive Web Design",
+      "JavaScript Algorithms and Data Structures - freeCodeCamp (2026)",
+      "Responsive Web Design - freeCodeCamp",
       "Curso de JavaScript e TypeScript do básico ao avançado",
       "Curso Vue JS 2 - O Guia Completo (incl. Vue Router & Vuex)"
     ]

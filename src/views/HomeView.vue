@@ -3,8 +3,9 @@
     <HeroSection />
     <AboutSection v-if="showSections" />
     <ExperienceSection v-if="showSections" />
-    <ProjectsSection v-if="showSections" />
     <SkillsSection v-if="showSections" />
+    <ServicesSection v-if="showSections" />
+    <ProjectsSection v-if="showSections" />
     <ContactSection v-if="showSections" />
   </div>
 </template>
@@ -14,6 +15,7 @@ import { ref, onMounted } from 'vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
 import ExperienceSection from '@/components/sections/ExperienceSection.vue'
+import ServicesSection from '@/components/sections/ServicesSection.vue'
 import ProjectsSection from '@/components/sections/ProjectsSection.vue'
 import SkillsSection from '@/components/sections/SkillsSection.vue'
 import ContactSection from '@/components/sections/ContactSection.vue'
