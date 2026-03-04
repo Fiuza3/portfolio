@@ -1,19 +1,19 @@
 @use './variables.scss' as *;
 
+// ==============================
+// PREMIUM ANIMATIONS
+// ==============================
+
 // Fade animations
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -32,40 +32,10 @@
   }
 }
 
-// Glitch effect
-@keyframes glitch {
-  0% {
-    text-shadow: 2px 2px $neon-cyan, -2px -2px $neon-cyan-dark;
-  }
-  25% {
-    text-shadow: -2px 2px $neon-cyan, 2px -2px $neon-cyan-dark;
-  }
-  50% {
-    text-shadow: 2px -2px $neon-cyan, -2px 2px $neon-cyan-dark;
-  }
-  75% {
-    text-shadow: -2px -2px $neon-cyan, 2px 2px $neon-cyan-dark;
-  }
-  100% {
-    text-shadow: 2px 2px $neon-cyan, -2px -2px $neon-cyan-dark;
-  }
-}
-
-// Neon glow pulse
-@keyframes neonPulse {
-  0%, 100% {
-    box-shadow: 0 0 5px $neon-cyan, 0 0 10px $neon-cyan, 0 0 15px $neon-cyan;
-  }
-  50% {
-    box-shadow: 0 0 10px $neon-cyan, 0 0 20px $neon-cyan, 0 0 30px $neon-cyan;
-  }
-}
-
-// Slide animations
-@keyframes slideInLeft {
+@keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-40px);
   }
   to {
     opacity: 1;
@@ -73,10 +43,10 @@
   }
 }
 
-@keyframes slideInRight {
+@keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;
@@ -84,11 +54,11 @@
   }
 }
 
-// Scale animations
+// Scale
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -96,52 +66,217 @@
   }
 }
 
-// Utility classes
-.animate-fade-in {
-  animation: fadeIn $transition-slow;
+// Float
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp $transition-slow;
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
 }
 
-.animate-fade-in-down {
-  animation: fadeInDown $transition-slow;
+// Glow pulse
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.4;
+    filter: blur(60px);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(80px);
+  }
 }
 
-.animate-slide-in-left {
-  animation: slideInLeft $transition-slow;
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.2);
+  }
 }
 
-.animate-slide-in-right {
-  animation: slideInRight $transition-slow;
+// Shimmer
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
-.animate-scale-in {
-  animation: scaleIn $transition-slow;
+// Line draw
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 100%; }
 }
 
-.neon-glow {
-  animation: neonPulse 2s ease-in-out infinite;
+@keyframes drawLineVertical {
+  from { height: 0; }
+  to { height: 100%; }
 }
 
-.glitch-effect {
-  animation: glitch 0.3s ease-in-out;
+// Rotate
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-// Hover effects
+// Bounce gentle
+@keyframes bounceGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+// Border gradient rotation
+@keyframes borderRotate {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+// Grain overlay
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+// ==============================
+// SCROLL-TRIGGERED ANIMATION CLASSES
+// ==============================
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s $ease-out-expo, transform 0.8s $ease-out-expo;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s $ease-out-expo, transform 0.8s $ease-out-expo;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s $ease-out-expo, transform 0.8s $ease-out-expo;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.8s $ease-out-expo, transform 0.8s $ease-out-expo;
+
+  &.revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Staggered delays
+@for $i from 1 through 12 {
+  .delay-#{$i} {
+    transition-delay: #{$i * 0.08}s;
+  }
+}
+
+// ==============================
+// HOVER EFFECT CLASSES
+// ==============================
+
 .hover-lift {
-  transition: transform $transition-normal;
-  
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: $shadow-card-hover;
   }
 }
 
 .hover-glow {
   transition: box-shadow $transition-normal;
-  
+
   &:hover {
-    box-shadow: $shadow-neon;
+    box-shadow: $shadow-glow-violet;
   }
+}
+
+.hover-scale {
+  transition: transform $transition-normal;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+// ==============================
+// TEXT ANIMATION CLASSES
+// ==============================
+
+.gradient-text {
+  background: $gradient-hero;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    $text-primary 0%,
+    $accent-cyan 25%,
+    $text-primary 50%,
+    $accent-violet 75%,
+    $text-primary 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
 }

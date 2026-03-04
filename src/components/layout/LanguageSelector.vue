@@ -1,77 +1,60 @@
 <template>
-  <v-menu offset-y>
-    <template v-slot:activator="{ props }">
-      <v-btn
-        v-bind="props"
-        icon
-        variant="text"
-        class="language-btn"
-      >
-        <v-icon>mdi-translate</v-icon>
-      </v-btn>
-    </template>
-
-    <v-list class="language-list">
-      <v-list-item
-        v-for="lang in languages"
-        :key="lang.code"
-        :class="{ active: currentLanguage === lang.code }"
-        @click="setLanguage(lang.code)"
-      >
-        <v-list-item-title>
-          <span class="flag">{{ lang.flag }}</span>
-          {{ lang.name }}
-        </v-list-item-title>
-      </v-list-item>
-    </v-list>
-  </v-menu>
+  <div class="lang-selector">
+    <button
+      v-for="lang in languages"
+      :key="lang.code"
+      :class="['lang-btn', { active: currentLanguage === lang.code }]"
+      @click="setLanguage(lang.code)"
+    >
+      {{ lang.code.toUpperCase() }}
+    </button>
+  </div>
 </template>
 
 <script setup>
 import { useI18n } from '@/composables/useI18n'
 
-const { currentLanguage, setLanguage, t } = useI18n()
+const { currentLanguage, setLanguage } = useI18n()
 
 const languages = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'pt', name: 'Português', flag: '🇧🇷' }
+  { code: 'en', name: 'English' },
+  { code: 'pt', name: 'Português' }
 ]
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables.scss' as *;
 
-.language-btn {
-  color: #fff !important;
-
-  &:hover {
-    color: $neon-cyan !important;
-  }
+.lang-selector {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: $radius-md;
+  padding: 2px;
+  border: 1px solid $border-subtle;
 }
 
-.language-list {
-  background: $void-black-light !important;
-  border: 1px solid rgba(61, 242, 224, 0.2);
-}
-
-.v-list-item {
-  color: #fff;
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $space-1 $space-3;
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  color: $text-tertiary;
+  border-radius: $radius-sm;
   transition: all $transition-fast;
+  letter-spacing: 0.05em;
 
   &:hover {
-    background: rgba(61, 242, 224, 0.1) !important;
-    color: $neon-cyan;
+    color: $text-secondary;
   }
 
   &.active {
-    background: rgba(61, 242, 224, 0.15) !important;
-    color: $neon-cyan;
-    border-left: 3px solid $neon-cyan;
+    color: $text-primary;
+    background: rgba(124, 58, 237, 0.15);
   }
-}
-
-.flag {
-  margin-right: $spacing-xs;
-  font-size: $font-size-lg;
 }
 </style>

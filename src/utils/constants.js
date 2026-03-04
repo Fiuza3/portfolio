@@ -1,23 +1,11 @@
 export const COLORS = {
-  voidBlack: '#0B0F14',
-  voidBlackLight: '#151921',
-  voidBlackDark: '#060809',
-  neonCyan: '#3DF2E0',
-  neonCyanDark: '#2BC9B8',
-  neonCyanLight: '#5FF5E5'
-}
-
-export const ANIMATION_DURATION = {
-  fast: 200,
-  normal: 300,
-  slow: 500
-}
-
-export const BREAKPOINTS = {
-  xs: 600,
-  sm: 960,
-  md: 1264,
-  lg: 1904
+  bgPrimary: '#04060b',
+  bgSecondary: '#0a0f1a',
+  bgTertiary: '#0f1528',
+  accentBlue: '#2563eb',
+  accentViolet: '#7c3aed',
+  accentCyan: '#06b6d4',
+  accentIndigo: '#4f46e5'
 }
 
 export const SOCIAL_LINKS = {

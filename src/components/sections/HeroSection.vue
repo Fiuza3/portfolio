@@ -1,277 +1,402 @@
 <template>
-  <section id="home" class="hero-section" @mousemove="handleMouseMove">
-    <div class="hero-background">
-      <div class="background-image"></div>
-      <div class="spotlight" :style="spotlightStyle">
-        <div class="spotlight-reveal"></div>
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge" :class="{ visible: loaded }">
+        <span class="badge-dot"></span>
+        <span class="badge-text">{{ t('hero.available') }}</span>
       </div>
-      <div class="gradient-orb orb-1"></div>
-      <div class="gradient-orb orb-2"></div>
+
+      <h1 class="hero-name" :class="{ visible: loaded }">
+        <span class="name-line">{{ t('hero.greeting') }}</span>
+        <span class="name-highlight">Marcus Fiuza</span>
+      </h1>
+
+      <h2 class="hero-title" :class="{ visible: loaded }">
+        {{ t('hero.title') }}
+      </h2>
+
+      <p class="hero-subtitle" :class="{ visible: loaded }">
+        {{ t('hero.subtitle') }}
+      </p>
+
+      <div class="hero-stack" :class="{ visible: loaded }">
+        <span v-for="tech in ['Vue.js', 'Node.js', 'React', 'Docker', 'MySQL']" :key="tech" class="stack-tag">
+          {{ tech }}
+        </span>
+      </div>
+
+      <div class="hero-actions" :class="{ visible: loaded }">
+        <a href="#projects" class="btn-primary">
+          <span>{{ t('hero.cta') }}</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#contact" class="btn-ghost">
+          <span>{{ t('hero.contact') }}</span>
+        </a>
+      </div>
     </div>
 
-    <v-container class="hero-content">
-      <v-row align="center" justify="center" class="fill-height">
-        <v-col cols="12" md="8" class="text-center">
-          <p class="greeting">
-            {{ t('hero.greeting') }}
-          </p>
-          
-          <h1 class="hero-name">
-            <span class="name-text" @mouseenter="triggerGlitch">
-              {{ t('hero.name') }}
-            </span>
-          </h1>
+    <div class="hero-scroll" :class="{ visible: loaded }">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">{{ t('hero.scroll') }}</span>
+    </div>
 
-          <h2 class="hero-title">
-            {{ t('hero.title') }}
-          </h2>
-
-          <p class="hero-subtitle">
-            {{ t('hero.subtitle') }}
-          </p>
-
-          <div class="hero-actions">
-            <v-btn
-              size="large"
-              class="cta-button"
-              href="#projects"
-            >
-              {{ t('hero.cta') }}
-              <v-icon right>mdi-arrow-down</v-icon>
-            </v-btn>
-          </div>
-
-          <div class="scroll-indicator">
-            <span>{{ t('hero.scroll') }}</span>
-            <v-icon class="scroll-icon">mdi-chevron-down</v-icon>
-          </div>
-        </v-col>
-      </v-row>
-    </v-container>
+    <!-- Decorative floating elements -->
+    <div class="hero-orb orb-violet"></div>
+    <div class="hero-orb orb-cyan"></div>
+    <div class="hero-orb orb-blue"></div>
   </section>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 
 const { t } = useI18n()
-const glitching = ref(false)
-const mouseX = ref(50)
-const mouseY = ref(50)
+const loaded = ref(false)
 
-const triggerGlitch = () => {
-  if (!glitching.value) {
-    glitching.value = true
-    setTimeout(() => {
-      glitching.value = false
-    }, 300)
-  }
-}
-
-const handleMouseMove = (e) => {
-  const rect = e.currentTarget.getBoundingClientRect()
-  mouseX.value = ((e.clientX - rect.left) / rect.width) * 100
-  mouseY.value = ((e.clientY - rect.top) / rect.height) * 100
-}
-
-const spotlightStyle = computed(() => ({
-  '--mouse-x': `${mouseX.value}%`,
-  '--mouse-y': `${mouseY.value}%`
-}))
+onMounted(() => {
+  requestAnimationFrame(() => {
+    loaded.value = true
+  })
+})
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables.scss' as *;
-@use '@/assets/styles/animations.scss' as *;
 
 .hero-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
+  padding: $space-32 $space-8 $space-16;
   overflow: hidden;
 }
 
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/fundo.webp');
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  will-change: opacity;
-}
-
-.spotlight {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  transition: --mouse-x 0.15s ease-out, --mouse-y 0.15s ease-out;
-}
-
-.spotlight-reveal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/fundo.webp');
-  background-size: cover;
-  background-position: center;
-  clip-path: circle(200px at var(--mouse-x, 50%) var(--mouse-y, 50%));
-  transition: clip-path 0.15s ease-out;
-  will-change: clip-path;
-}
-
-.gradient-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.3;
-  animation: float 8s ease-in-out infinite;
-  z-index: 2;
-  will-change: transform;
-
-  &.orb-1 {
-    width: 400px;
-    height: 400px;
-    background: $gradient-glow;
-    top: 10%;
-    left: 10%;
-  }
-
-  &.orb-2 {
-    width: 500px;
-    height: 500px;
-    background: $gradient-glow;
-    bottom: 10%;
-    right: 10%;
-    animation-delay: 2s;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
-  }
-  50% {
-    transform: translateY(-30px) translateX(30px);
-  }
-}
-
 .hero-content {
+  max-width: $max-width;
+  width: 100%;
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
-.greeting {
-  font-size: $font-size-lg;
-  color: $neon-cyan;
-  font-family: $font-family-mono;
-  margin-bottom: $spacing-sm;
-  animation: fadeInDown 0.8s ease-out;
+// Badge
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: $radius-full;
+  margin-bottom: $space-8;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s $ease-out-expo;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: subtleGlow 2s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+  }
+
+  .badge-text {
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $text-secondary;
+    letter-spacing: 0.05em;
+  }
 }
 
+// Name
 .hero-name {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 900;
-  margin-bottom: $spacing-md;
-  animation: fadeInUp 0.8s ease-out 0.2s both;
+  margin-bottom: $space-6;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s $ease-out-expo 0.1s;
 
-  .name-text {
-    background: linear-gradient(135deg, #fff 0%, $neon-cyan 100%);
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .name-line {
+    display: block;
+    font-family: $font-body;
+    font-size: $fs-xl;
+    font-weight: $fw-regular;
+    color: $text-secondary;
+    margin-bottom: $space-3;
+    letter-spacing: 0.02em;
+  }
+
+  .name-highlight {
+    display: block;
+    font-family: $font-display;
+    font-size: $fs-hero;
+    font-weight: $fw-extrabold;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    background: linear-gradient(135deg, $text-primary 0%, $text-primary 40%, $accent-violet 70%, $accent-cyan 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    cursor: pointer;
-    transition: all $transition-fast;
+  }
+}
+
+// Title
+.hero-title {
+  font-family: $font-display;
+  font-size: clamp(1.5rem, 4vw, $fs-4xl);
+  font-weight: $fw-bold;
+  color: $text-primary;
+  margin-bottom: $space-6;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s $ease-out-expo 0.2s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Subtitle
+.hero-subtitle {
+  font-family: $font-body;
+  font-size: $fs-lg;
+  color: $text-secondary;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: $space-8;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s $ease-out-expo 0.3s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Stack tags
+.hero-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  margin-bottom: $space-10;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s $ease-out-expo 0.4s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stack-tag {
+    padding: $space-2 $space-4;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid $border-subtle;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $text-tertiary;
+    letter-spacing: 0.02em;
+    transition: all $transition-normal;
 
     &:hover {
-      animation: glitch 0.3s ease-in-out;
+      border-color: $accent-violet;
+      color: $accent-violet;
+      background: rgba(124, 58, 237, 0.05);
     }
   }
 }
 
-.hero-title {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: $spacing-sm;
-  animation: fadeInUp 0.8s ease-out 0.4s both;
-}
-
-.hero-subtitle {
-  font-size: $font-size-xl;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: $spacing-xl;
-  animation: fadeInUp 0.8s ease-out 0.6s both;
-}
-
+// Actions
 .hero-actions {
-  margin-bottom: $spacing-xxl;
-  animation: fadeInUp 0.8s ease-out 0.8s both;
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s $ease-out-expo 0.5s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.cta-button {
-  background: $gradient-accent !important;
-  color: $void-black !important;
-  font-weight: 700;
-  padding: $spacing-md $spacing-xl !important;
-  border-radius: $border-radius-lg;
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4 $space-8;
+  background: $accent-violet;
+  color: white;
+  font-family: $font-body;
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  border-radius: $radius-lg;
+  text-decoration: none;
   transition: all $transition-normal;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, $accent-violet 0%, $accent-blue 100%);
+    opacity: 0;
+    transition: opacity $transition-normal;
+  }
+
+  span, svg {
+    position: relative;
+    z-index: 1;
+  }
+
+  svg {
+    transition: transform $transition-normal;
+  }
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: $shadow-neon;
-  }
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.3);
+    color: white;
 
-  :deep(.v-btn__content) {
-    display: flex;
-    align-items: center;
-    gap: $spacing-xs;
+    &::before {
+      opacity: 1;
+    }
+
+    svg {
+      transform: translateX(3px);
+    }
   }
 }
 
-.scroll-indicator {
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-4 $space-8;
+  color: $text-secondary;
+  font-family: $font-body;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  border-radius: $radius-lg;
+  text-decoration: none;
+  border: 1px solid $border-subtle;
+  transition: all $transition-normal;
+
+  &:hover {
+    color: $text-primary;
+    border-color: $border-medium;
+    background: rgba(255, 255, 255, 0.03);
+    transform: translateY(-2px);
+  }
+}
+
+// Scroll indicator
+.hero-scroll {
+  position: absolute;
+  bottom: $space-10;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $spacing-xs;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: $font-size-sm;
-  animation: fadeIn 0.8s ease-out 1s both;
+  gap: $space-3;
+  opacity: 0;
+  transition: opacity 0.8s $ease-out-expo 0.8s;
 
-  .scroll-icon {
-    animation: bounce 2s ease-in-out infinite;
+  &.visible {
+    opacity: 1;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, $accent-violet, transparent);
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+
+  .scroll-text {
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $text-tertiary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
   }
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+// Decorative orbs
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: glowPulse 6s ease-in-out infinite;
+
+  &.orb-violet {
+    width: 500px;
+    height: 500px;
+    background: $gradient-glow-violet;
+    top: 10%;
+    right: -10%;
+    filter: blur(80px);
+    opacity: 0.5;
   }
-  50% {
-    transform: translateY(10px);
+
+  &.orb-cyan {
+    width: 400px;
+    height: 400px;
+    background: $gradient-glow-cyan;
+    bottom: 10%;
+    left: -5%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation-delay: 2s;
+  }
+
+  &.orb-blue {
+    width: 300px;
+    height: 300px;
+    background: $gradient-glow-blue;
+    top: 50%;
+    left: 40%;
+    filter: blur(100px);
+    opacity: 0.3;
+    animation-delay: 4s;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .hero-section {
+    padding: $space-24 $space-6 $space-16;
+  }
+
+  .hero-name .name-highlight {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 </style>

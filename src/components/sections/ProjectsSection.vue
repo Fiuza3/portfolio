@@ -1,76 +1,77 @@
 <template>
   <section id="projects" ref="targetRef" class="projects-section">
-    <v-container>
-      <div :class="{ 'animate-fade-in-up': isVisible }">
-        <h2 class="section-title">
-          <span class="title-number">05.</span>
-          {{ t('projects.title') }}
-          <span class="title-line"></span>
-        </h2>
-
-        <v-row class="mt-8">
-          <v-col
-            v-for="(project, index) in t('projects.items')"
-            :key="index"
-            cols="12"
-            md="6"
-          >
-            <v-card class="project-card" elevation="0">
-              <div class="project-header">
-                <v-icon size="large" color="primary">mdi-folder-open</v-icon>
-                <div class="project-links">
-                  <v-btn
-                    v-if="project.liveUrl"
-                    icon
-                    size="small"
-                    variant="text"
-                    color="primary"
-                    :href="project.liveUrl"
-                    target="_blank"
-                  >
-                    <v-icon>mdi-open-in-new</v-icon>
-                  </v-btn>
-                </div>
-              </div>
-
-              <v-card-title class="project-name">
-                {{ project.name }}
-              </v-card-title>
-
-              <v-card-text>
-                <p class="project-description">
-                  {{ project.description }}
-                </p>
-
-                <div class="project-tech mt-4">
-                  <v-chip
-                    v-for="(tech, idx) in project.tech"
-                    :key="idx"
-                    size="small"
-                    variant="outlined"
-                    color="primary"
-                    class="tech-chip"
-                  >
-                    {{ tech }}
-                  </v-chip>
-                </div>
-
-                <div class="project-highlights mt-4">
-                  <div
-                    v-for="(highlight, idx) in project.highlights"
-                    :key="idx"
-                    class="highlight-item"
-                  >
-                    <v-icon size="small" color="primary">mdi-check-circle</v-icon>
-                    <span>{{ highlight }}</span>
-                  </div>
-                </div>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
+    <div class="section-container">
+      <div class="section-header" :class="{ revealed: isVisible }">
+        <span class="section-number">05</span>
+        <h2 class="section-title">{{ t('projects.title') }}</h2>
+        <div class="section-line"></div>
       </div>
-    </v-container>
+
+      <div class="projects-showcase">
+        <div
+          v-for="(project, index) in t('projects.items')"
+          :key="index"
+          class="project-card"
+          :class="{ revealed: isVisible }"
+          :style="{ transitionDelay: `${0.15 + index * 0.12}s` }"
+        >
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-label">{{ t('projects.featured') }}</span>
+              <div class="project-links">
+                <a
+                  v-if="project.liveUrl"
+                  :href="project.liveUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <v-icon size="18">mdi-open-in-new</v-icon>
+                </a>
+              </div>
+            </div>
+
+            <h3 class="project-name">{{ project.name }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+
+            <div class="project-highlights">
+              <div
+                v-for="(highlight, idx) in project.highlights"
+                :key="idx"
+                class="highlight-item"
+              >
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>{{ highlight }}</span>
+              </div>
+            </div>
+
+            <div class="project-stack">
+              <span
+                v-for="(tech, idx) in project.tech"
+                :key="idx"
+                class="tech-tag"
+              >
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+
+          <div class="project-visual">
+            <div class="visual-placeholder">
+              <div class="placeholder-bars">
+                <div class="bar" v-for="n in 4" :key="n"></div>
+              </div>
+              <div class="placeholder-grid">
+                <div class="grid-cell" v-for="n in 6" :key="n"></div>
+              </div>
+            </div>
+            <div class="visual-glow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -79,104 +80,291 @@ import { useI18n } from '@/composables/useI18n'
 import { useIntersectionObserver } from '@/composables/useIntersectionObserver'
 
 const { t } = useI18n()
-const { isVisible, targetRef } = useIntersectionObserver({ threshold: 0.2 })
+const { isVisible, targetRef } = useIntersectionObserver({ threshold: 0.1 })
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables.scss';
+@use '@/assets/styles/variables.scss' as *;
 
 .projects-section {
-  min-height: 100vh;
-  padding: $spacing-xxl 0;
-  background: $void-black-light;
+  padding: $space-32 $space-8;
+  position: relative;
 }
 
-.section-title {
+.section-container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.section-header {
   display: flex;
   align-items: center;
-  gap: $spacing-md;
-  font-size: $font-size-3xl;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: $spacing-xl;
+  gap: $space-4;
+  margin-bottom: $space-16;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s $ease-out-expo;
 
-  .title-number {
-    color: $neon-cyan;
-    font-family: $font-family-mono;
-    font-size: $font-size-xl;
+  &.revealed { opacity: 1; transform: translateY(0); }
+
+  .section-number {
+    font-family: $font-mono;
+    font-size: $fs-sm;
+    color: $accent-violet;
+    font-weight: $fw-semibold;
   }
 
-  .title-line {
+  .section-title {
+    font-family: $font-display;
+    font-size: $fs-3xl;
+    font-weight: $fw-bold;
+    color: $text-primary;
+    letter-spacing: -0.02em;
+  }
+
+  .section-line {
     flex: 1;
     height: 1px;
-    background: rgba(61, 242, 224, 0.3);
+    background: linear-gradient(to right, $border-medium, transparent);
     max-width: 300px;
   }
 }
 
+.projects-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: $space-10;
+}
+
 .project-card {
-  background: $void-black !important;
-  border: 1px solid rgba(61, 242, 224, 0.2);
-  border-radius: $border-radius-lg;
-  padding: $spacing-lg;
-  height: 100%;
-  transition: all $transition-normal;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: $space-10;
+  align-items: center;
+  padding: $space-10;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid $border-subtle;
+  border-radius: $radius-2xl;
+  transition: all 0.6s $ease-out-expo;
+  opacity: 0;
+  transform: translateY(40px);
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   &:hover {
-    border-color: $neon-cyan;
-    box-shadow: $shadow-neon;
-    transform: translateY(-10px);
+    border-color: rgba(124, 58, 237, 0.2);
+    background: rgba(255, 255, 255, 0.025);
+    box-shadow: 0 8px 60px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(124, 58, 237, 0.1);
+    transform: translateY(-4px);
+  }
+
+  &:nth-child(even) {
+    direction: rtl;
+    > * { direction: ltr; }
   }
 }
 
-.project-header {
+.project-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+.project-meta {
+  display: flex;
   align-items: center;
-  margin-bottom: $spacing-md;
+  justify-content: space-between;
+  margin-bottom: $space-4;
+}
+
+.project-label {
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  color: $accent-violet;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .project-links {
   display: flex;
-  gap: $spacing-xs;
+  gap: $space-2;
+}
+
+.project-link {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-md;
+  border: 1px solid $border-subtle;
+  color: $text-tertiary;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $accent-cyan;
+    border-color: $accent-cyan;
+    background: rgba(6, 182, 212, 0.06);
+  }
 }
 
 .project-name {
-  color: #fff;
-  font-size: $font-size-xl;
-  font-weight: 700;
-  padding: 0;
-  margin-bottom: $spacing-sm;
+  font-family: $font-display;
+  font-size: $fs-4xl;
+  font-weight: $fw-extrabold;
+  color: $text-primary;
+  margin-bottom: $space-4;
+  letter-spacing: -0.02em;
 }
 
 .project-description {
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-xs;
-}
-
-.tech-chip {
-  color: #fff !important;
-  font-family: $font-family-mono;
-  font-size: $font-size-xs;
+  font-size: $fs-base;
+  color: $text-secondary;
+  line-height: 1.7;
+  margin-bottom: $space-6;
 }
 
 .project-highlights {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
+  gap: $space-2;
+  margin-bottom: $space-6;
 }
 
 .highlight-item {
   display: flex;
   align-items: center;
-  gap: $spacing-xs;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: $font-size-sm;
+  gap: $space-3;
+  font-size: $fs-sm;
+  color: $text-secondary;
+
+  svg {
+    color: $accent-violet;
+    flex-shrink: 0;
+  }
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.tech-tag {
+  padding: $space-1 $space-3;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid $border-subtle;
+  border-radius: $radius-sm;
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  color: $text-tertiary;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $accent-cyan;
+    color: $accent-cyan;
+  }
+}
+
+// Visual placeholder (SaaS-style mockup)
+.project-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid $border-subtle;
+  border-radius: $radius-xl;
+  padding: $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  overflow: hidden;
+  position: relative;
+
+  .placeholder-bars {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+
+    .bar {
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+
+      &:nth-child(1) { width: 70%; }
+      &:nth-child(2) { width: 50%; }
+      &:nth-child(3) { width: 85%; }
+      &:nth-child(4) { width: 40%; }
+    }
+  }
+
+  .placeholder-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-3;
+    flex: 1;
+
+    .grid-cell {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: $radius-md;
+    }
+  }
+}
+
+.visual-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  background: $gradient-glow-violet;
+  filter: blur(60px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+
+  .project-card:hover & {
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: $bp-lg) {
+  .project-card {
+    grid-template-columns: 1fr;
+    padding: $space-8;
+
+    &:nth-child(even) {
+      direction: ltr;
+    }
+  }
+
+  .project-visual {
+    display: none;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .projects-section {
+    padding: $space-20 $space-6;
+  }
+
+  .project-card {
+    padding: $space-6;
+  }
+
+  .project-name {
+    font-size: $fs-3xl;
+  }
 }
 </style>

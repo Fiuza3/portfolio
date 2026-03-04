@@ -4,7 +4,7 @@
     "about": "About",
     "experience": "Experience",
     "skills": "Skills",
-    "services": "Services",
+    "architecture": "Architecture",
     "projects": "Projects",
     "contact": "Contact"
   },
@@ -12,110 +12,92 @@
     "greeting": "Hi, I'm",
     "name": "Marcus Fiuza",
     "title": "Full-Stack Developer",
-    "subtitle": "Specialized in Vue.js & Node.js",
-    "cta": "View My Work",
-    "scroll": "Scroll to explore"
+    "subtitle": "Building scalable systems from planning to production. Specialized in Vue.js, Node.js and modern web architecture.",
+    "cta": "View Projects",
+    "contact": "Get In Touch",
+    "scroll": "Scroll",
+    "available": "Available for new projects"
   },
   "about": {
     "title": "About Me",
-    "description": "Full Stack Developer with over 3 years of experience, specialized in Vue.js and Node.js. I work on both corporate and autonomous projects, developing complete systems from planning to production deployment. Experience with RESTful APIs, relational databases, Docker, deployment on Linux servers and CI/CD.",
-    "location": "Brazil",
-    "availability": "Available for freelance"
+    "description": "Full Stack Developer with over 3 years of experience, specialized in <a href='https://mfdesenvolvimento.online'>Vue.js and Node.js</a>. I work on both corporate and autonomous projects, developing complete systems from planning to production deployment. Solid experience with RESTful APIs, relational databases, Docker, Linux servers and CI/CD pipelines.",
+    "locationLabel": "Location",
+    "location": "Belo Horizonte, Brazil",
+    "statusLabel": "Status",
+    "availability": "Available for freelance",
+    "educationLabel": "Education",
+    "education": "B.Sc. Information Systems — UNESA",
+    "yearsExp": "Years Exp.",
+    "projectsDelivered": "Projects",
+    "techStack": "Core Stack"
   },
   "experience": {
     "title": "Experience",
     "present": "Present",
-    "months": "months",
     "jobs": [
       {
         "company": "Zapsuper",
         "role": "Full-Stack Developer",
         "type": "Autonomous",
-        "period": "December 2025 - Present",
-        "description": "Development of complete virtual numbers platform for SMS verification, alternative to services like SMSHub. Responsible for infrastructure planning, VPS, Linux, Docker, DNS and automated deployment.",
+        "period": "Dec 2025 — Present",
+        "description": "Complete virtual numbers platform for SMS verification. Full ownership from infrastructure planning to production deployment.",
         "achievements": [
-          "Complete system architecture from scratch",
-          "Infrastructure planning, VPS and Linux environment",
-          "Containerization with Docker and Docker Compose",
-          "DNS management and automated deployment",
-          "Technologies: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, RESTful API"
+          "Designed complete system architecture from scratch",
+          "VPS provisioning, Linux environment and Docker containerization",
+          "DNS management and automated CI/CD deployment",
+          "Backend: Node.js, Express, MySQL, JWT authentication",
+          "Frontend: Vue.js, Vuetify, RESTful API integration"
         ]
       },
       {
         "company": "BrazucaProxy",
         "role": "Full-Stack Developer",
         "type": "Autonomous",
-        "period": "August 2025 - December 2025",
-        "description": "Development of complete corporate proxy management system, working on the entire project lifecycle from architecture to production deployment.",
+        "period": "Aug 2025 — Dec 2025",
+        "description": "Corporate proxy management system. Responsible for full project lifecycle from architecture to production.",
         "achievements": [
-          "Complete corporate proxy management system",
-          "Complete system architecture from scratch",
-          "Infrastructure planning, VPS and Linux environment",
-          "Containerization with Docker and Docker Compose",
-          "DNS management and automated deployment",
-          "Technologies: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, RESTful API"
+          "End-to-end corporate proxy management platform",
+          "System architecture and infrastructure planning",
+          "Docker Compose orchestration and automated deployment",
+          "Stack: Vue.js, Node.js, Express, MySQL, Docker"
         ]
       },
       {
         "company": "Daniel Ramos",
         "role": "Front-end Developer",
         "type": "Autonomous",
-        "period": "September 2025",
-        "description": "Development of responsive institutional website for gospel singer, focusing on performance, SEO and conversion.",
+        "period": "Sep 2025",
+        "description": "Responsive institutional website for gospel singer. Focus on performance, SEO and conversion.",
         "achievements": [
-          "Responsive institutional website",
-          "SEO and performance optimization",
-          "Automated deployment with CI/CD",
-          "Technologies: React.js, Technical SEO, Vercel, CI/CD, HTTPS/SSL"
+          "Technical SEO: meta tags, sitemap, structured data, Open Graph",
+          "Automated deployment with Vercel and CI/CD",
+          "Stack: React.js, Vercel, HTTPS/SSL"
         ]
       },
       {
         "company": "Teknisa",
         "role": "Full-Stack Developer",
         "type": "Contract",
-        "period": "October 2024 - September 2025",
-        "description": "Worked on web application development and ERP with Vue, backend and database integration, SQL query optimization and internal client support.",
+        "period": "Oct 2024 — Sep 2025",
+        "description": "ERP web application development with Vue. Backend integration, SQL optimization and internal client support.",
         "achievements": [
           "ERP system development and maintenance",
           "Frontend, backend and database integration",
           "SQL query performance optimization",
-          "Technical support to internal clients",
-          "Technologies: Vue.js, JavaScript, SQL, Zeedhi Framework, Scrum"
+          "Stack: Vue.js, JavaScript, SQL, Zeedhi Framework, Scrum"
         ]
       },
       {
         "company": "SONDA",
         "role": "IT Technician",
         "type": "CLT",
-        "period": "May 2023 - August 2024",
-        "description": "Technical support in Windows and Linux environments, troubleshooting, diagnosis and incident resolution. Ticket management with GLPI and ServiceNow.",
+        "period": "May 2023 — Aug 2024",
+        "description": "Technical support in Windows and Linux environments. Advanced troubleshooting and incident resolution.",
         "achievements": [
-          "Windows and Linux technical support",
-          "Troubleshooting and incident resolution",
+          "Windows and Linux environment support",
           "GLPI and ServiceNow ticket management",
-          "Technologies: Windows Server, Linux, GLPI, ServiceNow, Scrum, Kanban"
+          "Stack: Windows Server, Linux, GLPI, ServiceNow"
         ]
-      }
-    ]
-  },
-  "projects": {
-    "title": "Featured Projects",
-    "viewCode": "View Code",
-    "viewLive": "Visit Site",
-    "items": [
-      {
-        "name": "Zapsuper",
-        "description": "Complete SMS verification platform alternative to SMSHub",
-        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
-        "highlights": ["Full-stack architecture", "RESTful API with JWT", "Automated Linux deployment"],
-        "liveUrl": "https://zapsuper.com"
-      },
-      {
-        "name": "BrazucaProxy",
-        "description": "Corporate proxy management system",
-        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
-        "highlights": ["Complete system", "Architecture from scratch", "Production deployment"],
-        "liveUrl": "https://brazucaproxy.com.br"
       }
     ]
   },
@@ -124,50 +106,96 @@
     "categories": {
       "frontend": {
         "title": "Frontend",
-        "items": ["Vue.js", "React.js", "Vuetify", "JavaScript", "TypeScript", "HTML5", "CSS3", "SASS", "Responsive Design", "Webpack", "Vite"]
+        "items": ["Vue.js", "React.js", "Vuetify", "JavaScript", "TypeScript", "HTML5", "CSS3", "SASS", "Responsive Design", "Vite"]
       },
       "backend": {
         "title": "Backend",
         "items": ["Node.js", "Express", "RESTful API", "JWT", "MySQL", "PostgreSQL", "MongoDB", "Redis", "Microservices"]
       },
       "devops": {
-        "title": "DevOps & Tools",
+        "title": "DevOps & Infra",
         "items": ["Docker", "Docker Compose", "Linux", "Git", "GitHub Actions", "CI/CD", "Vercel", "Nginx", "VPS"]
       },
       "methodologies": {
         "title": "Methodologies",
-        "items": ["Scrum", "Agile", "SEO", "Responsive Design"]
+        "items": ["Scrum", "Agile", "Technical SEO", "Responsive Design"]
       }
     }
   },
+  "architecture": {
+    "title": "Architecture & Engineering",
+    "subtitle": "Beyond code — I design, provision and deploy complete systems. From infrastructure planning to production-grade delivery.",
+    "items": {
+      "linux": {
+        "title": "Linux Infrastructure",
+        "desc": "Server provisioning and configuration in production Linux environments with security hardening."
+      },
+      "docker": {
+        "title": "Docker & Containers",
+        "desc": "Containerized applications with Docker and Docker Compose for consistent, reproducible deployments."
+      },
+      "deploy": {
+        "title": "Automated Deployment",
+        "desc": "CI/CD pipelines with GitHub Actions, Vercel and automated deployment workflows."
+      },
+      "dns": {
+        "title": "DNS & Networking",
+        "desc": "Domain management, DNS configuration, SSL certificates and HTTPS enforcement."
+      },
+      "vps": {
+        "title": "VPS & Cloud",
+        "desc": "Virtual private server provisioning and management for production workloads."
+      },
+      "scalability": {
+        "title": "Scalability",
+        "desc": "Architecture designed for growth with performance optimization and efficient resource management."
+      }
+    },
+    "banner": {
+      "title": "Security-First Approach",
+      "desc": "JWT authentication, environment variable management, secure API design, and production-grade security practices across all projects."
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "featured": "Featured Project",
+    "viewCode": "View Code",
+    "viewLive": "Visit Site",
+    "items": [
+      {
+        "name": "Zapsuper",
+        "description": "Complete SMS verification platform — a production-grade alternative to services like SMSHub. Built from the ground up with full-stack architecture, automated deployment and scalable infrastructure.",
+        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker", "Linux", "JWT"],
+        "highlights": ["Full-stack architecture from scratch", "RESTful API with JWT authentication", "Automated Linux deployment with Docker"],
+        "liveUrl": "https://zapsuper.com"
+      },
+      {
+        "name": "BrazucaProxy",
+        "description": "Corporate proxy management system with complete administrative dashboard. End-to-end system development from architecture design to production deployment.",
+        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
+        "highlights": ["Complete corporate management system", "Architecture designed from scratch", "Production deployment on VPS"],
+        "liveUrl": "https://brazucaproxy.com.br"
+      }
+    ]
+  },
   "contact": {
     "title": "Get In Touch",
-    "description": "I'm currently available for freelance work. Let's build something amazing together!",
+    "description": "I'm currently available for freelance projects and new opportunities. Let's build something great together.",
     "cta": "Contact Me",
     "via": {
       "email": "Email",
       "whatsapp": "WhatsApp",
       "linkedin": "LinkedIn"
     },
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "send": "Send Message",
-      "sending": "Sending...",
-      "success": "Message sent successfully!",
-      "error": "Error sending message. Please try again."
-    },
     "info": {
       "phone": "+55 31 97237-9038",
       "email": "devfiuza@gmail.com",
-      "location": "Belo Horizonte, MG - Brazil"
+      "location": "Belo Horizonte, MG — Brazil"
     }
   },
   "footer": {
-    "rights": "All rights reserved",
-    "built": "Built with Vue.js & Vuetify",
-    "easter": "Found an easter egg? There are more hidden!"
+    "rights": "All rights reserved.",
+    "built": "Built with Vue.js + WebGL"
   },
   "languages": {
     "en": "English",
@@ -176,10 +204,10 @@
   "certifications": {
     "title": "Certifications",
     "items": [
-      "JavaScript Algorithms and Data Structures - freeCodeCamp (2026)",
-      "Responsive Web Design - freeCodeCamp",
-      "JavaScript and TypeScript Course from basic to advanced",
-      "Vue JS 2 - The Complete Guide (incl. Vue Router & Vuex)"
+      "JavaScript Algorithms & Data Structures — freeCodeCamp",
+      "Responsive Web Design — freeCodeCamp",
+      "JavaScript & TypeScript: Basic to Advanced",
+      "Vue JS 2 Complete Guide (incl. Router & Vuex)"
     ]
   }
 }

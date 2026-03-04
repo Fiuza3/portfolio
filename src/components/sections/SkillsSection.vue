@@ -1,249 +1,256 @@
 <template>
   <section id="skills" ref="targetRef" class="skills-section">
-    <v-container>
-      <div :class="{ 'animate-fade-in-up': isVisible }">
-        <h2 class="section-title">
-          <span class="title-number">03.</span>
-          {{ t('skills.title') }}
-          <span class="title-line"></span>
-        </h2>
+    <div class="section-container">
+      <div class="section-header" :class="{ revealed: isVisible }">
+        <span class="section-number">03</span>
+        <h2 class="section-title">{{ t('skills.title') }}</h2>
+        <div class="section-line"></div>
+      </div>
 
-        <div class="skills-timeline-wrapper">
-          <v-row>
-            <v-col cols="12" md="6" class="left-column">
-              <v-card class="skill-card" elevation="0">
-                <v-card-title class="skill-category-title">
-                  <v-icon color="primary" size="large">
-                    mdi-monitor-dashboard
-                  </v-icon>
-                  {{ t('skills.categories.frontend.title') }}
-                </v-card-title>
-                <v-card-text>
-                  <div :class="['skills-list', t('skills.categories.frontend.items').length > 5 ? 'two-columns' : '']">
-                    <div
-                      v-for="(skill, idx) in t('skills.categories.frontend.items')"
-                      :key="idx"
-                      class="skill-item"
-                    >
-                      <v-icon size="small" color="primary">mdi-chevron-right</v-icon>
-                      <span>{{ skill }}</span>
-                    </div>
-                  </div>
-                </v-card-text>
-              </v-card>
+      <div class="skills-grid">
+        <div
+          v-for="(category, key) in categories"
+          :key="key"
+          class="skill-card"
+          :class="{ revealed: isVisible }"
+          :style="{ transitionDelay: `${0.1 + categories.indexOf(category) * 0.1}s` }"
+          @mousemove="tiltCard($event)"
+          @mouseleave="resetTilt($event)"
+        >
+          <div class="card-inner">
+            <div class="card-icon" :style="{ background: category.gradient }">
+              <v-icon :color="category.color" size="24">{{ category.icon }}</v-icon>
+            </div>
 
-              <v-card class="skill-card" elevation="0">
-                <v-card-title class="skill-category-title">
-                  <v-icon color="warning" size="large">
-                    mdi-cog
-                  </v-icon>
-                  {{ t('skills.categories.devops.title') }}
-                </v-card-title>
-                <v-card-text>
-                  <div :class="['skills-list', t('skills.categories.devops.items').length > 5 ? 'two-columns' : '']">
-                    <div
-                      v-for="(skill, idx) in t('skills.categories.devops.items')"
-                      :key="idx"
-                      class="skill-item"
-                    >
-                      <v-icon size="small" color="warning">mdi-chevron-right</v-icon>
-                      <span>{{ skill }}</span>
-                    </div>
-                  </div>
-                </v-card-text>
-              </v-card>
-            </v-col>
+            <h3 class="card-title">{{ t(`skills.categories.${category.key}.title`) }}</h3>
 
-            <v-col cols="12" md="6" class="right-column">
-              <v-card class="skill-card" elevation="0">
-                <v-card-title class="skill-category-title">
-                  <v-icon color="success" size="large">
-                    mdi-server
-                  </v-icon>
-                  {{ t('skills.categories.backend.title') }}
-                </v-card-title>
-                <v-card-text>
-                  <div :class="['skills-list', t('skills.categories.backend.items').length > 5 ? 'two-columns' : '']">
-                    <div
-                      v-for="(skill, idx) in t('skills.categories.backend.items')"
-                      :key="idx"
-                      class="skill-item"
-                    >
-                      <v-icon size="small" color="success">mdi-chevron-right</v-icon>
-                      <span>{{ skill }}</span>
-                    </div>
-                  </div>
-                </v-card-text>
-              </v-card>
+            <div class="card-skills">
+              <span
+                v-for="(skill, idx) in t(`skills.categories.${category.key}.items`)"
+                :key="idx"
+                class="skill-tag"
+              >
+                {{ skill }}
+              </span>
+            </div>
+          </div>
 
-              <v-card class="skill-card" elevation="0">
-                <v-card-title class="skill-category-title">
-                  <v-icon color="error" size="large">
-                    mdi-chart-timeline-variant
-                  </v-icon>
-                  {{ t('skills.categories.methodologies.title') }}
-                </v-card-title>
-                <v-card-text>
-                  <div :class="['skills-list', t('skills.categories.methodologies.items').length > 5 ? 'two-columns' : '']">
-                    <div
-                      v-for="(skill, idx) in t('skills.categories.methodologies.items')"
-                      :key="idx"
-                      class="skill-item"
-                    >
-                      <v-icon size="small" color="error">mdi-chevron-right</v-icon>
-                      <span>{{ skill }}</span>
-                    </div>
-                  </div>
-                </v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
+          <div class="card-glow" :style="{ background: category.glowColor }"></div>
         </div>
       </div>
-    </v-container>
+    </div>
   </section>
 </template>
 
 <script setup>
+import { reactive } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import { useIntersectionObserver } from '@/composables/useIntersectionObserver'
 
 const { t } = useI18n()
-const { isVisible, targetRef } = useIntersectionObserver({ threshold: 0.2 })
+const { isVisible, targetRef } = useIntersectionObserver({ threshold: 0.15 })
 
-const getCategoryIcon = (key) => {
-  const icons = {
-    frontend: 'mdi-monitor-dashboard',
-    backend: 'mdi-server',
-    devops: 'mdi-cog',
-    methodologies: 'mdi-chart-timeline-variant'
+const categories = reactive([
+  {
+    key: 'frontend',
+    icon: 'mdi-monitor-dashboard',
+    color: '#06b6d4',
+    gradient: 'rgba(6, 182, 212, 0.1)',
+    glowColor: 'radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%)'
+  },
+  {
+    key: 'backend',
+    icon: 'mdi-server',
+    color: '#7c3aed',
+    gradient: 'rgba(124, 58, 237, 0.1)',
+    glowColor: 'radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%)'
+  },
+  {
+    key: 'devops',
+    icon: 'mdi-cloud-outline',
+    color: '#2563eb',
+    gradient: 'rgba(37, 99, 235, 0.1)',
+    glowColor: 'radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%)'
+  },
+  {
+    key: 'methodologies',
+    icon: 'mdi-chart-timeline-variant',
+    color: '#10b981',
+    gradient: 'rgba(16, 185, 129, 0.1)',
+    glowColor: 'radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%)'
   }
-  return icons[key] || 'mdi-code-tags'
+])
+
+const tiltCard = (e) => {
+  const card = e.currentTarget
+  const rect = card.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  const centerX = rect.width / 2
+  const centerY = rect.height / 2
+  const rotateX = (y - centerY) / 20
+  const rotateY = (centerX - x) / 20
+
+  card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`
 }
 
-const getCategoryColor = (key) => {
-  const colors = {
-    frontend: 'primary',
-    backend: 'success',
-    devops: 'warning',
-    methodologies: 'error'
-  }
-  return colors[key] || 'primary'
+const resetTilt = (e) => {
+  e.currentTarget.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)'
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables.scss';
+@use '@/assets/styles/variables.scss' as *;
 
 .skills-section {
-  min-height: 100vh;
-  padding: $spacing-xxl 0;
-  background: $void-black;
+  padding: $space-32 $space-8;
+  position: relative;
 }
 
-.section-title {
+.section-container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.section-header {
   display: flex;
   align-items: center;
-  gap: $spacing-md;
-  font-size: $font-size-3xl;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: $spacing-xl;
+  gap: $space-4;
+  margin-bottom: $space-16;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s $ease-out-expo;
 
-  .title-number {
-    color: $neon-cyan;
-    font-family: $font-family-mono;
-    font-size: $font-size-xl;
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .title-line {
+  .section-number {
+    font-family: $font-mono;
+    font-size: $fs-sm;
+    color: $accent-violet;
+    font-weight: $fw-semibold;
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $fs-3xl;
+    font-weight: $fw-bold;
+    color: $text-primary;
+    letter-spacing: -0.02em;
+  }
+
+  .section-line {
     flex: 1;
     height: 1px;
-    background: rgba(61, 242, 224, 0.3);
+    background: linear-gradient(to right, $border-medium, transparent);
     max-width: 300px;
   }
 }
 
-.skills-timeline-wrapper {
-  margin-top: $spacing-xl;
-  position: relative;
-  padding-bottom: 80px;
-}
-
-.timeline-divider {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(61, 242, 224, 0.3);
-  transform: translateX(-50%);
-  z-index: 0;
-}
-
-.left-column,
-.right-column {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-}
-
-.left-column {
-  padding-top: 40px;
-}
-
-.right-column {
-  padding-top: 240px;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-6;
 }
 
 .skill-card {
-  background: $void-black !important;
-  border: 1px solid rgba(61, 242, 224, 0.2);
-  border-radius: $border-radius-lg;
-  transition: all $transition-normal;
+  position: relative;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s $ease-out-expo, transform 0.3s ease;
 
-  &:hover {
-    border-color: $neon-cyan;
-    box-shadow: $shadow-neon;
-    transform: translateX(5px);
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-inner {
+    position: relative;
+    z-index: 1;
+    padding: $space-8;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid $border-subtle;
+    border-radius: $radius-xl;
+    transition: border-color $transition-normal, background $transition-normal;
+  }
+
+  &:hover .card-inner {
+    border-color: rgba(124, 58, 237, 0.25);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &:hover .card-glow {
+    opacity: 1;
   }
 }
 
-.skill-category-title {
-  color: #fff;
-  font-size: $font-size-xl;
-  font-weight: 700;
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-md;
   display: flex;
   align-items: center;
-  gap: $spacing-md;
+  justify-content: center;
+  margin-bottom: $space-5;
 }
 
-.skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-sm;
-
-  &.two-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: $spacing-sm $spacing-md;
-  }
+.card-title {
+  font-family: $font-display;
+  font-size: $fs-xl;
+  font-weight: $fw-bold;
+  color: $text-primary;
+  margin-bottom: $space-5;
 }
 
-.skill-item {
+.card-skills {
   display: flex;
-  align-items: center;
-  gap: $spacing-xs;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: $font-size-sm;
-  line-height: 1.5;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.skill-tag {
+  padding: $space-1 $space-3;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border-subtle;
+  border-radius: $radius-sm;
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  color: $text-secondary;
   transition: all $transition-fast;
 
   &:hover {
-    color: $neon-cyan;
-    transform: translateX(5px);
+    border-color: $accent-violet;
+    color: $accent-violet;
+    background: rgba(124, 58, 237, 0.06);
+  }
+}
+
+@media (max-width: $bp-md) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-section {
+    padding: $space-20 $space-6;
   }
 }
 </style>

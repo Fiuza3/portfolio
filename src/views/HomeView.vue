@@ -4,7 +4,7 @@
     <AboutSection v-if="showSections" />
     <ExperienceSection v-if="showSections" />
     <SkillsSection v-if="showSections" />
-    <ServicesSection v-if="showSections" />
+    <ArchitectureSection v-if="showSections" />
     <ProjectsSection v-if="showSections" />
     <ContactSection v-if="showSections" />
   </div>
@@ -15,20 +15,18 @@ import { ref, onMounted } from 'vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
 import ExperienceSection from '@/components/sections/ExperienceSection.vue'
-import ServicesSection from '@/components/sections/ServicesSection.vue'
 import ProjectsSection from '@/components/sections/ProjectsSection.vue'
 import SkillsSection from '@/components/sections/SkillsSection.vue'
+import ArchitectureSection from '@/components/sections/ArchitectureSection.vue'
 import ContactSection from '@/components/sections/ContactSection.vue'
 
 const showSections = ref(false)
 
-// Lazy load sections after hero
 onMounted(() => {
   setTimeout(() => {
     showSections.value = true
   }, 100)
 
-  // Easter egg: Konami code
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']
   let konamiIndex = 0
 
@@ -36,7 +34,7 @@ onMounted(() => {
     if (e.key === konamiCode[konamiIndex]) {
       konamiIndex++
       if (konamiIndex === konamiCode.length) {
-        activateEasterEgg()
+        document.body.style.animation = 'rainbow 2s linear infinite'
         konamiIndex = 0
       }
     } else {
@@ -44,17 +42,10 @@ onMounted(() => {
     }
   }
 
-  const activateEasterEgg = () => {
-    console.log('🎮 Konami Code Activated! You found the secret!')
-    document.body.style.animation = 'rainbow 2s linear infinite'
-  }
-
-  // Ctrl+Shift+K easter egg
   const handleKeyCombo = (e) => {
     if (e.ctrlKey && e.shiftKey && e.key === 'K') {
-      console.log('🔑 Secret Key Combo! Developer mode activated')
-      console.log('%c Built with ❤️ by Marcus Fiuza', 'color: #3DF2E0; font-size: 20px; font-weight: bold;')
-      console.log('%c Vue 3 + Vuetify + Pinia Architecture', 'color: #fff; font-size: 14px;')
+      console.log('%c Built with passion by Marcus Fiuza', 'color: #7c3aed; font-size: 20px; font-weight: bold;')
+      console.log('%c Vue 3 + Vuetify + WebGL Architecture', 'color: #06b6d4; font-size: 14px;')
     }
   }
 

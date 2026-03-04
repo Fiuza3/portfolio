@@ -1,217 +1,276 @@
 <template>
   <section id="contact" ref="targetRef" class="contact-section">
-    <v-container>
-      <div :class="{ 'animate-fade-in-up': isVisible }">
-        <h2 class="section-title">
-          <span class="title-number">05.</span>
-          {{ t('contact.title') }}
-          <span class="title-line"></span>
-        </h2>
+    <div class="section-container">
+      <div class="contact-inner" :class="{ revealed: isVisible }">
+        <div class="section-header">
+          <span class="section-number">06</span>
+          <h2 class="section-title">{{ t('contact.title') }}</h2>
+        </div>
 
         <p class="contact-description">
           {{ t('contact.description') }}
         </p>
 
-        <div class="contact-cta">
-          <h3 class="cta-title">{{ t('contact.cta') }}</h3>
-          <div class="cta-buttons">
-            <v-btn
-              size="x-large"
-              color="primary"
-              variant="outlined"
-              :href="`mailto:${SOCIAL_LINKS.email}`"
-              class="contact-btn"
-            >
-              <v-icon left>mdi-email</v-icon>
-              {{ t('contact.via.email') }}
-            </v-btn>
+        <div class="contact-grid">
+          <a
+            :href="`mailto:${SOCIAL_LINKS.email}`"
+            class="contact-card"
+          >
+            <div class="contact-icon">
+              <v-icon size="24">mdi-email-outline</v-icon>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">{{ SOCIAL_LINKS.email }}</span>
+            </div>
+            <svg class="contact-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
 
-            <v-btn
-              size="x-large"
-              color="success"
-              variant="outlined"
-              :href="SOCIAL_LINKS.whatsapp"
-              target="_blank"
-              class="contact-btn"
-            >
-              <v-icon left>mdi-whatsapp</v-icon>
-              {{ t('contact.via.whatsapp') }}
-            </v-btn>
+          <a
+            :href="SOCIAL_LINKS.whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
+          >
+            <div class="contact-icon whatsapp">
+              <v-icon size="24">mdi-whatsapp</v-icon>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">WhatsApp</span>
+              <span class="contact-value">{{ t('contact.info.phone') }}</span>
+            </div>
+            <svg class="contact-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
 
-            <v-btn
-              size="x-large"
-              color="info"
-              variant="outlined"
-              :href="SOCIAL_LINKS.linkedin"
-              target="_blank"
-              class="contact-btn"
-            >
-              <v-icon left>mdi-linkedin</v-icon>
-              {{ t('contact.via.linkedin') }}
-            </v-btn>
-          </div>
+          <a
+            :href="SOCIAL_LINKS.linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
+          >
+            <div class="contact-icon linkedin">
+              <v-icon size="24">mdi-linkedin</v-icon>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">devfiuza</span>
+            </div>
+            <svg class="contact-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <a
+            :href="SOCIAL_LINKS.github"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
+          >
+            <div class="contact-icon github">
+              <v-icon size="24">mdi-github</v-icon>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">fiuza3</span>
+            </div>
+            <svg class="contact-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
 
-        <v-row class="mt-12">
-          <v-col cols="12" md="4" v-for="info in contactInfo" :key="info.type">
-            <div class="info-card">
-              <v-icon size="large" color="primary">{{ info.icon }}</v-icon>
-              <div class="info-content">
-                <h4>{{ info.label }}</h4>
-                <p>{{ info.value }}</p>
-              </div>
-            </div>
-          </v-col>
-        </v-row>
+        <div class="contact-location">
+          <v-icon size="16" color="#7c3aed">mdi-map-marker</v-icon>
+          <span>{{ t('contact.info.location') }}</span>
+        </div>
       </div>
-    </v-container>
+    </div>
   </section>
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import { useIntersectionObserver } from '@/composables/useIntersectionObserver'
 import { SOCIAL_LINKS } from '@/utils/constants'
 
 const { t } = useI18n()
-const { isVisible, targetRef } = useIntersectionObserver({ threshold: 0.2 })
-
-const contactInfo = computed(() => [
-  {
-    type: 'phone',
-    icon: 'mdi-phone',
-    label: 'Phone',
-    value: t('contact.info.phone')
-  },
-  {
-    type: 'email',
-    icon: 'mdi-email',
-    label: 'Email',
-    value: t('contact.info.email')
-  },
-  {
-    type: 'location',
-    icon: 'mdi-map-marker',
-    label: 'Location',
-    value: t('contact.info.location')
-  }
-])
+const { isVisible, targetRef } = useIntersectionObserver({ threshold: 0.15 })
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables.scss';
+@use '@/assets/styles/variables.scss' as *;
 
 .contact-section {
-  min-height: 100vh;
-  padding: $spacing-xxl 0;
-  background: $void-black;
+  padding: $space-32 $space-8;
+  position: relative;
 }
 
-.section-title {
+.section-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-inner {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s $ease-out-expo;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-header {
   display: flex;
   align-items: center;
-  gap: $spacing-md;
-  font-size: $font-size-3xl;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: $spacing-md;
+  justify-content: center;
+  gap: $space-4;
+  margin-bottom: $space-6;
 
-  .title-number {
-    color: $neon-cyan;
-    font-family: $font-family-mono;
-    font-size: $font-size-xl;
+  .section-number {
+    font-family: $font-mono;
+    font-size: $fs-sm;
+    color: $accent-violet;
+    font-weight: $fw-semibold;
   }
 
-  .title-line {
-    flex: 1;
-    height: 1px;
-    background: rgba(61, 242, 224, 0.3);
-    max-width: 300px;
+  .section-title {
+    font-family: $font-display;
+    font-size: $fs-4xl;
+    font-weight: $fw-bold;
+    color: $text-primary;
+    letter-spacing: -0.02em;
   }
 }
 
 .contact-description {
-  font-size: $font-size-lg;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto $spacing-xl;
+  font-size: $fs-lg;
+  color: $text-secondary;
+  line-height: 1.7;
+  margin-bottom: $space-12;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.contact-cta {
-  text-align: center;
-  margin: $spacing-xxl 0;
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+  margin-bottom: $space-10;
+  text-align: left;
 }
 
-.cta-title {
-  font-size: $font-size-2xl;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: $spacing-xl;
-}
-
-.cta-buttons {
+.contact-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-lg;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-5 $space-6;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid $border-subtle;
+  border-radius: $radius-lg;
+  text-decoration: none;
+  transition: all $transition-normal;
+  cursor: pointer;
+
+  &:hover {
+    border-color: rgba(124, 58, 237, 0.25);
+    background: rgba(124, 58, 237, 0.03);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+    .contact-arrow {
+      transform: translateX(3px);
+      color: $accent-violet;
+    }
+  }
+}
+
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  background: rgba(124, 58, 237, 0.1);
+  color: $accent-violet;
+  flex-shrink: 0;
+
+  &.whatsapp {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+
+  &.linkedin {
+    background: rgba(37, 99, 235, 0.1);
+    color: $accent-blue;
+  }
+
+  &.github {
+    background: rgba(255, 255, 255, 0.06);
+    color: $text-secondary;
+  }
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 0;
+
+  .contact-label {
+    display: block;
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $text-tertiary;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .contact-value {
+    display: block;
+    font-size: $fs-sm;
+    color: $text-primary;
+    font-weight: $fw-medium;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.contact-arrow {
+  color: $text-tertiary;
+  flex-shrink: 0;
+  transition: all $transition-fast;
+}
+
+.contact-location {
+  display: inline-flex;
   align-items: center;
+  gap: $space-2;
+  font-size: $fs-sm;
+  color: $text-tertiary;
 }
 
-.contact-btn {
-  min-width: 200px;
-  font-weight: 600;
-  transition: all $transition-normal;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: $shadow-neon;
-  }
-}
-
-.info-card {
-  display: flex;
-  align-items: center;
-  gap: $spacing-md;
-  background: $void-black-light;
-  border: 1px solid rgba(61, 242, 224, 0.2);
-  border-radius: $border-radius-lg;
-  padding: $spacing-lg;
-  transition: all $transition-normal;
-  height: 100%;
-
-  &:hover {
-    border-color: $neon-cyan;
-    box-shadow: $shadow-neon;
-    transform: translateY(-5px);
+@media (max-width: $bp-md) {
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-.info-content {
-  h4 {
-    color: #fff;
-    font-size: $font-size-lg;
-    font-weight: 600;
-    margin-bottom: $spacing-xs;
+@media (max-width: $bp-sm) {
+  .contact-section {
+    padding: $space-20 $space-6;
   }
 
-  p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: $font-size-base;
-    margin: 0;
-    word-break: break-word;
-  }
-}
-
-@media (max-width: 960px) {
-  .cta-buttons {
-    flex-direction: column;
-  }
-
-  .contact-btn {
-    width: 100%;
-    max-width: 300px;
+  .section-header .section-title {
+    font-size: $fs-3xl;
   }
 }
 </style>

@@ -14,7 +14,8 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vuetify': ['vuetify'],
-          'vue-vendor': ['vue', 'vue-router', 'pinia']
+          'vue-vendor': ['vue', 'vue-router', 'pinia'],
+          'three': ['three']
         }
       }
     },

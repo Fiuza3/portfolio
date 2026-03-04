@@ -1,234 +1,213 @@
 {
   "nav": {
-    "home": "Início",
+    "home": "Inicio",
     "about": "Sobre",
-    "experience": "Experiência",
+    "experience": "Experiencia",
     "skills": "Habilidades",
-    "services": "Serviços",
+    "architecture": "Arquitetura",
     "projects": "Projetos",
     "contact": "Contato"
   },
   "hero": {
-    "greeting": "Olá, eu sou",
+    "greeting": "Ola, eu sou",
     "name": "Marcus Fiuza",
-    "title": "Desenvolvedor Web Full-Stack",
-    "subtitle": "Transformo ideias em sistemas profissionais que geram resultados reais para empresas em Belo Horizonte e região metropolitana",
-    "cta": "Solicitar Orçamento",
-    "scroll": "Role para explorar"
+    "title": "Desenvolvedor Full-Stack",
+    "subtitle": "Construindo sistemas escalaveis do planejamento a producao. Especializado em Vue.js, Node.js e arquitetura web moderna.",
+    "cta": "Ver Projetos",
+    "contact": "Entre em Contato",
+    "scroll": "Role",
+    "available": "Disponivel para novos projetos"
   },
   "about": {
     "title": "Sobre Mim",
-    "description": "<a href='https://mfdesenvolvimento.online'>Desenvolvedor Full Stack</a> com mais de 3 anos de experiência criando soluções digitais profissionais para empresas. Especializado em Vue.js e Node.js, atuo do planejamento estratégico até a implantação em produção. Experiência comprovada com APIs RESTful, bancos de dados relacionais, Docker, deploy em servidores Linux e CI/CD. Atendo empresas em Belo Horizonte e toda região metropolitana.",
-    "location": "Belo Horizonte, MG - Brasil",
-    "availability": "Disponível para novos projetos"
+    "description": "Desenvolvedor Full Stack com mais de 3 anos de experiencia, especializado em <a href='https://mfdesenvolvimento.online'>Vue.js e Node.js</a>. Atuo em projetos corporativos e autonomos, desenvolvendo sistemas completos do planejamento a implantacao em producao. Experiencia solida com APIs RESTful, bancos de dados relacionais, Docker, servidores Linux e pipelines CI/CD.",
+    "locationLabel": "Localizacao",
+    "location": "Belo Horizonte, Brasil",
+    "statusLabel": "Status",
+    "availability": "Disponivel para freelance",
+    "educationLabel": "Formacao",
+    "education": "Bacharelado em Sistemas de Informacao — UNESA",
+    "yearsExp": "Anos Exp.",
+    "projectsDelivered": "Projetos",
+    "techStack": "Stack Core"
   },
   "experience": {
-    "title": "Experiência",
+    "title": "Experiencia",
     "present": "Presente",
-    "months": "meses",
     "jobs": [
       {
         "company": "Zapsuper",
         "role": "Desenvolvedor Full-Stack",
-        "type": "Autônomo",
-        "period": "dezembro de 2025 - Presente",
-        "description": "Desenvolvimento de plataforma completa de números virtuais para verificação SMS, alternativa a serviços como SMSHub. Responsável por planejamento de infraestrutura, VPS, Linux, Docker, DNS e deploy automatizado.",
+        "type": "Autonomo",
+        "period": "Dez 2025 — Presente",
+        "description": "Plataforma completa de numeros virtuais para verificacao SMS. Responsabilidade total da infraestrutura ao deploy em producao.",
         "achievements": [
           "Arquitetura completa do sistema do zero",
-          "Planejamento de infraestrutura, VPS e ambiente Linux",
-          "Containerização com Docker e Docker Compose",
-          "Gerenciamento de DNS e deploy automatizado",
-          "Tecnologias: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, API REST"
+          "Provisionamento VPS, ambiente Linux e containerizacao Docker",
+          "Gerenciamento DNS e deploy automatizado CI/CD",
+          "Backend: Node.js, Express, MySQL, autenticacao JWT",
+          "Frontend: Vue.js, Vuetify, integracao API RESTful"
         ]
       },
       {
         "company": "BrazucaProxy",
         "role": "Desenvolvedor Full-Stack",
-        "type": "Autônomo",
-        "period": "agosto de 2025 - dezembro de 2025",
-        "description": "Desenvolvimento de sistema corporativo completo de gerenciamento de proxies, atuando em todo o ciclo de vida do projeto, da arquitetura ao deploy em produção.",
+        "type": "Autonomo",
+        "period": "Ago 2025 — Dez 2025",
+        "description": "Sistema corporativo de gerenciamento de proxies. Responsavel pelo ciclo completo do projeto, da arquitetura a producao.",
         "achievements": [
-          "Sistema corporativo completo de gerenciamento de proxies",
-          "Arquitetura completa do sistema do zero",
-          "Planejamento de infraestrutura, VPS e ambiente Linux",
-          "Containerização com Docker e Docker Compose",
-          "Gerenciamento de DNS e deploy automatizado",
-          "Tecnologias: Vue.js, Vuetify, Node.js, Express, MySQL, Docker, Linux, JWT, API REST"
+          "Plataforma corporativa completa de gerenciamento de proxies",
+          "Arquitetura do sistema e planejamento de infraestrutura",
+          "Orquestracao Docker Compose e deploy automatizado",
+          "Stack: Vue.js, Node.js, Express, MySQL, Docker"
         ]
       },
       {
         "company": "Daniel Ramos",
         "role": "Desenvolvedor Front-end",
-        "type": "Autônomo",
-        "period": "setembro de 2025",
-        "description": "Desenvolvimento de site institucional responsivo para cantor gospel, com foco em performance, SEO e conversão.",
+        "type": "Autonomo",
+        "period": "Set 2025",
+        "description": "Site institucional responsivo para cantor gospel. Foco em performance, SEO e conversao.",
         "achievements": [
-          "Site institucional responsivo",
-          "Otimização de SEO e performance",
-          "Deploy automatizado com CI/CD",
-          "Tecnologias: React.js, SEO Técnico, Vercel, CI/CD, HTTPS/SSL"
+          "SEO tecnico: meta tags, sitemap, structured data, Open Graph",
+          "Deploy automatizado com Vercel e CI/CD",
+          "Stack: React.js, Vercel, HTTPS/SSL"
         ]
       },
       {
         "company": "Teknisa",
         "role": "Desenvolvedor Full-Stack",
         "type": "Contrato",
-        "period": "outubro de 2024 - setembro de 2025",
-        "description": "Atuação em desenvolvimento de aplicações web e ERP com Vue, integração com backend e banco de dados, otimização de queries SQL e suporte a clientes internos.",
+        "period": "Out 2024 — Set 2025",
+        "description": "Desenvolvimento de aplicacoes web ERP com Vue. Integracao backend, otimizacao SQL e suporte a clientes internos.",
         "achievements": [
-          "Desenvolvimento e manutenção de sistema ERP",
-          "Integração frontend, backend e banco de dados",
-          "Otimização de performance em queries SQL",
-          "Suporte técnico a clientes internos",
-          "Tecnologias: Vue.js, JavaScript, SQL, Framework Zeedhi, Scrum"
+          "Desenvolvimento e manutencao de sistema ERP",
+          "Integracao frontend, backend e banco de dados",
+          "Otimizacao de performance em queries SQL",
+          "Stack: Vue.js, JavaScript, SQL, Framework Zeedhi, Scrum"
         ]
       },
       {
         "company": "SONDA",
-        "role": "Técnico de TI",
+        "role": "Tecnico de TI",
         "type": "CLT",
-        "period": "maio de 2023 - agosto de 2024",
-        "description": "Suporte técnico em ambientes Windows e Linux, troubleshooting, diagnóstico e resolução de incidentes. Gestão de chamados com GLPI e ServiceNow.",
+        "period": "Mai 2023 — Ago 2024",
+        "description": "Suporte tecnico em ambientes Windows e Linux. Troubleshooting avancado e resolucao de incidentes.",
         "achievements": [
-          "Suporte técnico Windows e Linux",
-          "Troubleshooting e resolução de incidentes",
-          "Gestão de chamados GLPI e ServiceNow",
-          "Tecnologias: Windows Server, Linux, GLPI, ServiceNow, Scrum, Kanban"
+          "Suporte em ambientes Windows e Linux",
+          "Gestao de chamados GLPI e ServiceNow",
+          "Stack: Windows Server, Linux, GLPI, ServiceNow"
         ]
       }
     ]
   },
-  "projects": {
-    "title": "Projetos em Destaque",
-    "viewCode": "Ver Código",
-    "viewLive": "Visitar Site",
-    "items": [
-      {
-        "name": "Zapsuper",
-        "description": "Plataforma completa de verificação SMS alternativa ao SMSHub",
-        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
-        "highlights": ["Arquitetura full-stack", "API RESTful com JWT", "Deploy Linux automatizado"],
-        "liveUrl": "https://zapsuper.com"
-      },
-      {
-        "name": "BrazucaProxy",
-        "description": "Sistema corporativo de gerenciamento de proxies",
-        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
-        "highlights": ["Sistema completo", "Arquitetura do zero", "Deploy em produção"],
-        "liveUrl": "https://brazucaproxy.com.br"
-      }
-    ]
-  },
   "skills": {
-    "title": "Habilidades Técnicas",
+    "title": "Habilidades Tecnicas",
     "categories": {
       "frontend": {
         "title": "Frontend",
-        "items": ["Vue.js", "React.js", "Vuetify", "JavaScript", "TypeScript", "HTML5", "CSS3", "SASS", "Responsive Design", "Webpack", "Vite"]
+        "items": ["Vue.js", "React.js", "Vuetify", "JavaScript", "TypeScript", "HTML5", "CSS3", "SASS", "Design Responsivo", "Vite"]
       },
       "backend": {
         "title": "Backend",
         "items": ["Node.js", "Express", "API RESTful", "JWT", "MySQL", "PostgreSQL", "MongoDB", "Redis", "Microservices"]
       },
       "devops": {
-        "title": "DevOps & Ferramentas",
+        "title": "DevOps & Infra",
         "items": ["Docker", "Docker Compose", "Linux", "Git", "GitHub Actions", "CI/CD", "Vercel", "Nginx", "VPS"]
       },
       "methodologies": {
         "title": "Metodologias",
-        "items": ["Scrum", "Agile", "SEO", "Design Responsivo"]
+        "items": ["Scrum", "Agile", "SEO Tecnico", "Design Responsivo"]
       }
     }
   },
+  "architecture": {
+    "title": "Arquitetura & Engenharia",
+    "subtitle": "Alem do codigo — eu projeto, provisiono e implanto sistemas completos. Do planejamento de infraestrutura a entrega em producao.",
+    "items": {
+      "linux": {
+        "title": "Infraestrutura Linux",
+        "desc": "Provisionamento e configuracao de servidores em ambientes Linux de producao com hardening de seguranca."
+      },
+      "docker": {
+        "title": "Docker & Containers",
+        "desc": "Aplicacoes containerizadas com Docker e Docker Compose para deploys consistentes e reproduziveis."
+      },
+      "deploy": {
+        "title": "Deploy Automatizado",
+        "desc": "Pipelines CI/CD com GitHub Actions, Vercel e workflows de deploy automatizado."
+      },
+      "dns": {
+        "title": "DNS & Networking",
+        "desc": "Gerenciamento de dominios, configuracao DNS, certificados SSL e HTTPS."
+      },
+      "vps": {
+        "title": "VPS & Cloud",
+        "desc": "Provisionamento e gerenciamento de servidores privados virtuais para cargas de trabalho em producao."
+      },
+      "scalability": {
+        "title": "Escalabilidade",
+        "desc": "Arquitetura projetada para crescimento com otimizacao de performance e gerenciamento eficiente de recursos."
+      }
+    },
+    "banner": {
+      "title": "Seguranca em Primeiro Lugar",
+      "desc": "Autenticacao JWT, gerenciamento de variaveis de ambiente, design seguro de APIs e praticas de seguranca em nivel de producao em todos os projetos."
+    }
+  },
+  "projects": {
+    "title": "Projetos em Destaque",
+    "featured": "Projeto em Destaque",
+    "viewCode": "Ver Codigo",
+    "viewLive": "Visitar Site",
+    "items": [
+      {
+        "name": "Zapsuper",
+        "description": "Plataforma completa de verificacao SMS — alternativa production-grade a servicos como SMSHub. Construida do zero com arquitetura full-stack, deploy automatizado e infraestrutura escalavel.",
+        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker", "Linux", "JWT"],
+        "highlights": ["Arquitetura full-stack do zero", "API RESTful com autenticacao JWT", "Deploy Linux automatizado com Docker"],
+        "liveUrl": "https://zapsuper.com"
+      },
+      {
+        "name": "BrazucaProxy",
+        "description": "Sistema corporativo de gerenciamento de proxies com dashboard administrativo completo. Desenvolvimento end-to-end do design de arquitetura ao deploy em producao.",
+        "tech": ["Vue.js", "Vuetify", "Node.js", "Express", "MySQL", "Docker"],
+        "highlights": ["Sistema corporativo completo", "Arquitetura projetada do zero", "Deploy em producao em VPS"],
+        "liveUrl": "https://brazucaproxy.com.br"
+      }
+    ]
+  },
   "contact": {
     "title": "Entre em Contato",
-    "description": "Pronto para transformar sua ideia em realidade? Vamos conversar sobre seu projeto e encontrar a melhor solução para o seu negócio.",
+    "description": "Estou disponivel para projetos freelance e novas oportunidades. Vamos construir algo incrivel juntos.",
     "cta": "Fale Comigo",
     "via": {
       "email": "Email",
       "whatsapp": "WhatsApp",
       "linkedin": "LinkedIn"
     },
-    "form": {
-      "name": "Nome",
-      "email": "Email",
-      "message": "Mensagem",
-      "send": "Enviar Mensagem",
-      "sending": "Enviando...",
-      "success": "Mensagem enviada com sucesso!",
-      "error": "Erro ao enviar mensagem. Tente novamente."
-    },
     "info": {
       "phone": "+55 31 97237-9038",
       "email": "devfiuza@gmail.com",
-      "location": "Belo Horizonte, MG - Brasil"
+      "location": "Belo Horizonte, MG — Brasil"
     }
   },
-  "services": {
-    "title": "Serviços",
-    "subtitle": "Soluções profissionais de desenvolvimento web para empresas que buscam resultados reais e mensuráveis",
-    "items": [
-      {
-        "name": "Landing Pages",
-        "description": "Páginas de alta conversão otimizadas para capturar leads e gerar vendas. Ideal para lançamentos, campanhas de marketing e validação de produtos.",
-        "icon": "mdi-rocket-launch",
-        "color": "primary",
-        "features": [
-          "Design responsivo e moderno focado em conversão",
-          "Otimização completa para SEO e Google Ads",
-          "Integração com ferramentas de marketing (RD Station, Mailchimp, etc)",
-          "Performance otimizada (carregamento rápido)",
-          "Formulários inteligentes com validação",
-          "Análise de métricas com Google Analytics",
-          "Testes A/B para otimização contínua",
-          "Entrega em 7-14 dias"
-        ]
-      },
-      {
-        "name": "Sites Institucionais",
-        "description": "Sites profissionais completos para empresas que querem marcar presença digital",
-        "icon": "mdi-web",
-        "color": "success",
-        "features": [
-          "Múltiplas páginas e seções",
-          "Painel administrativo",
-          "Blog integrado (opcional)",
-          "Formulários de contato avançados",
-          "Suporte pós-lançamento"
-        ]
-      },
-      {
-        "name": "Sistemas Personalizados",
-        "description": "Soluções sob medida para automatizar processos e aumentar produtividade",
-        "icon": "mdi-cog-outline",
-        "color": "warning",
-        "pricing": "Sob consulta",
-        "features": [
-          "Desenvolvimento sob medida",
-          "Integração com sistemas existentes",
-          "Banco de dados robusto",
-          "Autenticação e segurança",
-          "Treinamento da equipe"
-        ]
-      }
-    ]
-  },
   "footer": {
-    "rights": "Todos os direitos reservados",
-    "built": "Construído com Vue.js & Vuetify",
-    "easter": "Encontrou um easter egg? Existem mais escondidos!"
+    "rights": "Todos os direitos reservados.",
+    "built": "Construido com Vue.js + WebGL"
   },
   "languages": {
-    "en": "Inglês",
-    "pt": "Português"
+    "en": "Ingles",
+    "pt": "Portugues"
   },
   "certifications": {
-    "title": "Certificações",
+    "title": "Certificacoes",
     "items": [
-      "JavaScript Algorithms and Data Structures - freeCodeCamp (2026)",
-      "Responsive Web Design - freeCodeCamp",
-      "Curso de JavaScript e TypeScript do básico ao avançado",
-      "Curso Vue JS 2 - O Guia Completo (incl. Vue Router & Vuex)"
+      "JavaScript Algorithms & Data Structures — freeCodeCamp",
+      "Responsive Web Design — freeCodeCamp",
+      "JavaScript & TypeScript: do Basico ao Avancado",
+      "Vue JS 2 Guia Completo (incl. Router & Vuex)"
     ]
   }
 }

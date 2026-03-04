@@ -21,15 +21,15 @@ const vuetify = createVuetify({
       dark: {
         dark: true,
         colors: {
-          background: COLORS.voidBlack,
-          surface: COLORS.voidBlackLight,
-          primary: COLORS.neonCyan,
-          secondary: COLORS.neonCyanDark,
-          accent: COLORS.neonCyanLight,
-          error: '#FF5252',
-          info: COLORS.neonCyan,
-          success: '#4CAF50',
-          warning: '#FFC107'
+          background: COLORS.bgPrimary,
+          surface: COLORS.bgSecondary,
+          primary: COLORS.accentViolet,
+          secondary: COLORS.accentCyan,
+          accent: COLORS.accentBlue,
+          info: COLORS.accentCyan,
+          error: '#ef4444',
+          success: '#10b981',
+          warning: '#f59e0b'
         }
       }
     }

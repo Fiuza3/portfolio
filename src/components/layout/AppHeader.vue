@@ -1,56 +1,64 @@
 <template>
-  <v-app-bar
-    :elevation="scrolled ? 8 : 0"
-    :class="{ 'header-scrolled': scrolled }"
-    class="app-header"
-    fixed
-    app
-  >
-    <v-container class="d-flex align-center">
-      <v-app-bar-title class="logo" @click="scrollToTop">
-        <span class="logo-bracket">&lt;</span>
-        <span class="logo-text">MF</span>
-        <span class="logo-bracket">/&gt;</span>
-      </v-app-bar-title>
+  <header :class="['app-header', { scrolled }]">
+    <div class="header-inner">
+      <a class="logo" href="#home" @click.prevent="scrollToTop">
+        <span class="logo-mark">M</span>
+        <span class="logo-dot"></span>
+      </a>
 
-      <v-spacer />
-
-      <div class="nav-links d-none d-md-flex">
+      <nav class="nav-links d-none d-md-flex">
         <a
           v-for="item in navItems"
           :key="item.id"
           :href="`#${item.id}`"
           class="nav-link"
+          :class="{ active: activeSection === item.id }"
         >
-          {{ t(`nav.${item.id}`) }}
+          <span class="nav-text">{{ t(`nav.${item.id}`) }}</span>
         </a>
+      </nav>
+
+      <div class="header-actions">
+        <LanguageSelector />
+        <button class="mobile-toggle d-md-none" @click="drawer = !drawer" aria-label="Menu">
+          <span class="toggle-line" :class="{ open: drawer }"></span>
+          <span class="toggle-line" :class="{ open: drawer }"></span>
+        </button>
       </div>
-
-      <LanguageSelector class="ml-4" />
-
-      <v-app-bar-nav-icon
-        class="d-md-none"
-        @click="drawer = !drawer"
-      />
-    </v-container>
-  </v-app-bar>
+    </div>
+  </header>
 
   <v-navigation-drawer
     v-model="drawer"
     temporary
     location="right"
     class="mobile-drawer"
+    width="300"
   >
-    <v-list>
-      <v-list-item
-        v-for="item in navItems"
-        :key="item.id"
-        :href="`#${item.id}`"
-        @click="drawer = false"
-      >
-        <v-list-item-title>{{ t(`nav.${item.id}`) }}</v-list-item-title>
-      </v-list-item>
-    </v-list>
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <span class="drawer-logo">MF</span>
+        <button class="drawer-close" @click="drawer = false">
+          <v-icon>mdi-close</v-icon>
+        </button>
+      </div>
+      <nav class="drawer-nav">
+        <a
+          v-for="(item, index) in navItems"
+          :key="item.id"
+          :href="`#${item.id}`"
+          class="drawer-link"
+          :style="{ animationDelay: `${index * 0.05}s` }"
+          @click="drawer = false"
+        >
+          <span class="drawer-link-number">0{{ index + 1 }}</span>
+          <span class="drawer-link-text">{{ t(`nav.${item.id}`) }}</span>
+        </a>
+      </nav>
+      <div class="drawer-footer">
+        <a :href="`mailto:${SOCIAL_LINKS.email}`" class="drawer-email">{{ SOCIAL_LINKS.email }}</a>
+      </div>
+    </div>
   </v-navigation-drawer>
 </template>
 
@@ -58,23 +66,34 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import LanguageSelector from './LanguageSelector.vue'
 import { useI18n } from '@/composables/useI18n'
+import { SOCIAL_LINKS } from '@/utils/constants'
 
 const { t } = useI18n()
 const scrolled = ref(false)
 const drawer = ref(false)
+const activeSection = ref('home')
 
 const navItems = [
   { id: 'home' },
   { id: 'about' },
   { id: 'experience' },
   { id: 'skills' },
-  { id: 'services' },
+  { id: 'architecture' },
   { id: 'projects' },
   { id: 'contact' }
 ]
 
 const handleScroll = () => {
   scrolled.value = window.scrollY > 50
+
+  const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean)
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const rect = sections[i].getBoundingClientRect()
+    if (rect.top <= 200) {
+      activeSection.value = navItems[i].id
+      break
+    }
+  }
 }
 
 const scrollToTop = () => {
@@ -82,7 +101,7 @@ const scrollToTop = () => {
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
 onUnmounted(() => {
@@ -94,71 +113,216 @@ onUnmounted(() => {
 @use '@/assets/styles/variables.scss' as *;
 
 .app-header {
-  background: rgba(11, 15, 20, 0.8) !important;
-  backdrop-filter: blur(10px);
-  transition: all $transition-normal;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  padding: $space-5 0;
+  transition: all 0.4s $ease-out-expo;
 
-  &.header-scrolled {
-    background: rgba(11, 15, 20, 0.95) !important;
-    box-shadow: 0 4px 20px rgba(61, 242, 224, 0.1) !important;
+  &.scrolled {
+    padding: $space-3 0;
+    background: $glass-bg-heavy;
+    backdrop-filter: $glass-blur;
+    -webkit-backdrop-filter: $glass-blur;
+    border-bottom: 1px solid $glass-border;
   }
 }
 
+.header-inner {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .logo {
-  cursor: pointer;
-  font-family: $font-family-mono;
-  font-size: $font-size-xl;
-  font-weight: 700;
-  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  text-decoration: none;
 
-  .logo-bracket {
-    color: $neon-cyan;
+  .logo-mark {
+    font-family: $font-display;
+    font-size: $fs-2xl;
+    font-weight: $fw-extrabold;
+    color: $text-primary;
+    letter-spacing: -0.02em;
+    transition: color $transition-normal;
   }
 
-  .logo-text {
-    color: #fff;
-    margin: 0 4px;
+  .logo-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $accent-violet;
+    margin-top: auto;
+    margin-bottom: 6px;
+    transition: background $transition-normal;
   }
 
-  &:hover .logo-text {
-    animation: glitch 0.3s ease-in-out;
+  &:hover {
+    .logo-mark { color: $accent-violet; }
+    .logo-dot { background: $accent-cyan; }
   }
 }
 
 .nav-links {
-  gap: $spacing-lg;
+  display: flex;
+  align-items: center;
+  gap: $space-1;
 }
 
 .nav-link {
-  color: #fff;
+  padding: $space-2 $space-4;
+  color: $text-secondary;
   text-decoration: none;
-  font-size: $font-size-sm;
-  font-weight: 500;
-  position: relative;
-  padding: $spacing-xs 0;
-  transition: color $transition-fast;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: $neon-cyan;
-    transition: width $transition-normal;
-  }
+  font-family: $font-body;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  border-radius: $radius-md;
+  transition: all $transition-normal;
 
   &:hover {
-    color: $neon-cyan;
+    color: $text-primary;
+    background: rgba(124, 58, 237, 0.08);
+  }
 
-    &::after {
-      width: 100%;
-    }
+  &.active {
+    color: $accent-violet;
+    background: rgba(124, 58, 237, 0.1);
+  }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.mobile-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $space-2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 32px;
+
+  .toggle-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: $text-primary;
+    border-radius: 2px;
+    transition: all 0.3s $ease-out-expo;
+
+    &:first-child { transform-origin: left; }
+    &:last-child { transform-origin: left; width: 60%; }
+    &.open:first-child { transform: rotate(45deg); }
+    &.open:last-child { transform: rotate(-45deg); width: 100%; }
   }
 }
 
 .mobile-drawer {
-  background: $void-black-light !important;
+  background: $bg-secondary !important;
+  border-left: 1px solid $border-subtle !important;
+}
+
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: $space-8;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $space-12;
+}
+
+.drawer-logo {
+  font-family: $font-display;
+  font-size: $fs-xl;
+  font-weight: $fw-extrabold;
+  color: $text-primary;
+}
+
+.drawer-close {
+  background: none;
+  border: 1px solid $border-subtle;
+  color: $text-secondary;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $accent-violet;
+    color: $accent-violet;
+  }
+}
+
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  flex: 1;
+}
+
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-4;
+  text-decoration: none;
+  border-radius: $radius-md;
+  transition: all $transition-normal;
+  animation: fadeInRight 0.4s $ease-out-expo both;
+
+  &:hover {
+    background: rgba(124, 58, 237, 0.08);
+    transform: translateX(4px);
+  }
+
+  .drawer-link-number {
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $accent-violet;
+    min-width: 24px;
+  }
+
+  .drawer-link-text {
+    font-family: $font-display;
+    font-size: $fs-lg;
+    font-weight: $fw-semibold;
+    color: $text-primary;
+    text-transform: capitalize;
+  }
+}
+
+.drawer-footer {
+  padding-top: $space-8;
+  border-top: 1px solid $border-subtle;
+}
+
+.drawer-email {
+  font-family: $font-mono;
+  font-size: $fs-sm;
+  color: $text-tertiary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover { color: $accent-cyan; }
 }
 </style>
